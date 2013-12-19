@@ -31,12 +31,12 @@
 
 <!--					<legend>Sube tu Foto</legend>-->
 
-					<div class="control-group">
+					<!-- <div class="control-group">
 						<label class="control-label" for="img_name">Nombre de la Foto : </label>
 						<div class="controls">
 							<input type="text" name="img_name" id="img_name" required/><br />
 						</div>
-					</div>
+					</div> -->
 
 					<div class="control-group">
 						<label class="control-label" for="file">Foto : </label>

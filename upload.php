@@ -1,6 +1,6 @@
 <?php
   ini_set('display_errors','1');
-  
+
 	require('includes/settings.php');
 
 	if ((($_FILES["img_file"]["type"] == "image/gif")
@@ -30,11 +30,12 @@
                     }
                     else
                     {
+                        $_FILES["img_file"]["name"] = uniqid('photo_');
                         if(move_uploaded_file($_FILES["img_file"]["tmp_name"],"uploads/" . $_FILES["img_file"]["name"]))
                         {
                             $sql="INSERT INTO " . $table_for_images . " (img_name, img_loc)
                                                VALUES
-                                               ('" . $_POST['img_name'] . "','uploads/" . $_FILES["img_file"]["name"] . "')";
+                                               ('" . $_FILES["img_file"]["name"]. "','uploads/" . $_FILES["img_file"]["name"] . "')";
 
                             if(mysqli_query($con, $sql))
                             {
