@@ -13,108 +13,145 @@ class DataBase {
 	public static $queries;
 	private static $_singleton;
 
-	public static function getInstance(){
-		if (is_null (self::$_singleton)) {
-			self::$_singleton = new DataBase();
-		}
-		return self::$_singleton;
+	public static function getInstance()
+        {
+            if(is_null(self::$_singleton)) 
+            {
+                    self::$_singleton = new DataBase();
+            }
+            return self::$_singleton;
 	}
 
-	private function __construct(){
-            /*  $link=mssql_connect("172.21.10.10","usrppto","usrbudget2012");
-                mssql_select_db("Presupuesto",$link);
-             */
-		
-                // $this->conexion = @mssql_connect("172.21.10.10","usrppto","usrbudget2012");
-                ////@mssql_connect(DIRECCION,USUARIO,CONTRASENA );//
-		//$this->conexion = mssql_select_db("Presupuesto")or die("Cannot select DB");
-                //$this->$conexionbd = mssql_select_db("Presupuesto",$this->conexion);
-                $this->queries = 0;
-		$this->resource = null;
+	private function __construct()
+        {
+            $this->conexion = @mysql_connect("localhost","root","");
+            $this->conexion = mysql_select_db("imageuploader")or die("Cannot select DB");
+            $this->queries = 0;
+            $this->resource = null;
 	}
 
-       public function execute_query($sql) {
-
-	            //$this->conexion = @mssql_connect("172.21.10.10","usrppto","usrbudget2012");	   
-                    $RESP=mssql_query($sql,$this->conexion); 
-                    return $RESP;
-		}//fin del metodo query
+        public function execute_query($sql) 
+        {	   
+            $RESP=mysql_query($sql,$this->conexion); 
+            return $RESP;
+        }//fin del metodo query
                 
-	public function execute(){
-		
-           $this->conexion = @mssql_connect("172.21.10.10","usrppto","usrbudget2012");   
-           
-            if(!($this->resource = mssql_query($this->sql, $this->conexion))){
-			return null;
-		}
-		$this->queries++;
+	public function execute()
+        {		            
+            if(!($this->resource = mysql_query($this->sql, $this->conexion)))
+            {
+                    return null;
+            }
+            $this->queries++;
                                 
-		return $this->resource;
+            return $this->resource;
 	}
 
 
-        public function count(){
-                echo 'Mori1<br>';
-		echo $resource = mssql_query($this->sql, $this->conexion);
-                print_r($resource);
-                echo '<br>Mori2<br>';
-		echo $cuantos = mssql_num_rows($resource);
-		return $cuantos;
+        public function count()
+        {
+            $resource = mysql_query($this->sql, $this->conexion);
+            $cuantos = mysql_num_rows($resource);
+            return $cuantos;
 	}
        
         
-	public function alter(){
-		if(!($this->resource = mssql_query($this->sql, $this->conexion))){
-			return false;
-		}
-		return true;
+	public function alter()
+        {
+            if(!($this->resource = mysql_query($this->sql, $this->conexion)))
+            {
+                    return false;
+            }
+            return true;
 	}
+        
+        public function getFullGallery(&$paginacion,$orderBy='id DESC')
+        {
+            $paginacion['total']=$this->count();
+            $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
+            $begin=$paginacion['nXp'] * ($paginacion['current']-1);
+            $end=$begin + $paginacion['nXp'];
+            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,$end";
+            $this->setQuery($sql);
+            return $this->loadObjectList();
+        }
+        
+        public function getLastEntries(&$paginacion,$orderBy='id DESC', $n=40)
+        {
+            $paginacion['total']=$n;
+            $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
+            $begin=$paginacion['nXp'] * ($paginacion['current']-1);
+            $end=$begin + $paginacion['nXp'];
+            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,$end";
+            $this->setQuery($sql);
+            return $this->loadObjectList();            
+        }
+        
+        public function getMoreLiked(&$paginacion,$orderBy='likes DESC', $n=40)
+        {
+            $paginacion['total']=$n;
+            $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
+            $begin=$paginacion['nXp'] * ($paginacion['current']-1);
+            $end=$begin + $paginacion['nXp'];
+            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,$end";
+            $this->setQuery($sql);
+            return $this->loadObjectList();            
+        }        
 
 	public function loadObjectList()
         {
-		if (!($cur = $this->execute())){
-			return null;
-		}
-		$array = array();
-		while ($row = @mssql_fetch_object($cur)){
-			$array[] = $row;
-		}
-		return $array;
+            if (!($cur = $this->execute()))
+            {
+                    return null;
+            }
+            $array = array();
+            while ($row = @mysql_fetch_object($cur))
+            {
+                    $array[] = $row;
+            }
+            return $array;
 	}
 
 	public function setQuery($sql)
         {
-	     if(empty($sql)){
-			return false;
-		}
-		$this->sql = $sql;
-		return true;
+	    if(empty($sql))
+            {
+                return false;
+            }
+            $this->sql = $sql;
+            return true;
 	}
 
-	public function freeResults(){
-		@mssql_free_result($this->resource);
-		return true;
+	public function freeResults()
+        {
+            @mysql_free_result($this->resource);
+            return true;
 	}
 
 	public function loadObject()
         {
-		if ($cur = $this->execute()){
-			if ($object = mssql_fetch_object($cur)){
-				@mssql_free_result($cur);
-				return $object;
-			}
-			else {
-				return null;
-			}
-		}
-		else {
-			return false;
-		}
+            if ($cur = $this->execute())
+            {
+                if ($object = mysql_fetch_object($cur))
+                {
+                        @mysql_free_result($cur);
+                        return $object;
+                }
+                else 
+                {
+                        return null;
+                }
+            }
+            else 
+            {
+                return false;
+            }
 	}
 
-	function __destruct(){
-		@mssql_free_result($this->resource);
-		@mssql_close($this->conexion);
+	function __destruct()
+        {
+            @mysql_free_result($this->resource);
+            @mysql_close($this->conexion);
 	}
 }
 ?>
