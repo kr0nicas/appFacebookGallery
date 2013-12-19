@@ -25,8 +25,8 @@ class DataBase {
 	private function __construct()
         {
             $this->conexion = @mysql_connect("localhost","root","");
-            $this->conexion = mysql_select_db("imageuploader")or die("Cannot select DB");
-            $this->queries = 0;
+            mysql_select_db("imageuploader")or die("Cannot select DB");
+            self::$queries = 0;
             $this->resource = null;
 	}
 
@@ -42,7 +42,7 @@ class DataBase {
             {
                     return null;
             }
-            $this->queries++;
+            self::$queries++;
                                 
             return $this->resource;
 	}
@@ -67,22 +67,31 @@ class DataBase {
         
         public function getFullGallery(&$paginacion,$orderBy='id DESC')
         {
+            $sqlCount="SELECT * FROM images";
+            $this->setQuery($sqlCount);            
             $paginacion['total']=$this->count();
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
-            $end=$begin + $paginacion['nXp'];
-            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,$end";
+            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp']; 
+            //echo $sql;
             $this->setQuery($sql);
             return $this->loadObjectList();
         }
         
-        public function getLastEntries(&$paginacion,$orderBy='id DESC', $n=40)
+        public function cuentaFullGallery(&$paginacion)
         {
+            $sqlCount="SELECT * FROM images";
+            $this->setQuery($sqlCount);            
+            $paginacion['total']=$this->count();
+            $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);            
+        }
+        
+        public function getLastEntries(&$paginacion,$orderBy='id DESC', $n=40)
+        {            
             $paginacion['total']=$n;
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
-            $end=$begin + $paginacion['nXp'];
-            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,$end";
+            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp'];
             $this->setQuery($sql);
             return $this->loadObjectList();            
         }
@@ -92,9 +101,7 @@ class DataBase {
             $paginacion['total']=$n;
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
-            $end=$begin + $paginacion['nXp'];
-            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,$end";
-            $this->setQuery($sql);
+            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp'];
             return $this->loadObjectList();            
         }        
 

@@ -56,6 +56,12 @@
                                                     </div>
 						</div>
 					</div>
+					<div class="control-group">
+                                                <label class="control-label" for="img_name">Ingrese una descripci&oacute;n : </label>
+						<div class="controls">
+							<input type="text" name="img_desc" id="img_desc" required/><br />
+						</div>
+					</div>                                        
 					<hr />
 
 					<div class="text-center">
