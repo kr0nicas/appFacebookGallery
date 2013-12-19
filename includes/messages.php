@@ -7,13 +7,13 @@
           $text = "No se pudo guardar la foto en la base de datos.";
           break;
         case 2:
-          $text = "Archivo de imagen no válido.";
+          $text = "Archivo de imagen no v&aacute;lido.";
           break;
         case 3:
           $text = "La foto ya existe.";
           break;
         case 4:
-          $text = "La foto pesa más de 2 MB.";
+          $text = "La foto pesa m&aacute;s de 2 MB.";
           break;
         case 5:
           $text = "No se pudo subir la foto.";
@@ -31,7 +31,7 @@
 
       switch($_GET['status']) {
         case 1:
-          $text = "Foto cargada con éxito!";
+          $text = "Foto cargada con &eacute;xito!";
           break;
         default:
           $text = "Unknown message code.";
