@@ -43,7 +43,7 @@
 						<div class="controls">
                                                     <div class="fileinput fileinput-new" >
                                                       <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-<!--                                                        <img data-src="holder.js/100%x100%" alt="...">-->
+                                                        <img src="img/no-picture.png" alt="...">
                                                       </div>
                                                         <div class="fileinput-filename ">
                                                         </div>
