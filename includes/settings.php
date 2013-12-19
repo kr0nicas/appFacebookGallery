@@ -2,7 +2,7 @@
 
 	$host = "localhost";
 	$user = "root";
-	$pass = "jacastaneda";
+	$pass = "";
 	$dbname = "imageUploader";
 	$table_for_images = "images";
 
@@ -13,11 +13,13 @@
 	}
 
 
-	$createTable = "CREATE TABLE IF NOT EXISTS `" . $table_for_images . "` (
-	                `id` int(11) NOT NULL AUTO_INCREMENT,
-	                `img_name` text NOT NULL,
-	                `img_loc` text NOT NULL,
-	                PRIMARY KEY (`id`)
+	$createTable = "CREATE TABLE IF NOT EXISTS `" . $table_for_images . "` (                        
+                        `id` int(11) NOT NULL AUTO_INCREMENT,
+                        `img_name` text NOT NULL,
+                        `img_loc` text NOT NULL,
+                        `likes` int(11) DEFAULT NULL,
+                        `fecha_hora_carga` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+                        PRIMARY KEY (`id`)
 	                ) DEFAULT CHARSET=utf8";
 
 	mysqli_query($con, $createTable) or die('Unable to create table : ' . mysqli_error($con));
