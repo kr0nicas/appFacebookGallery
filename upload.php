@@ -24,13 +24,13 @@
                 }
                 else
                 {
+                    $_FILES["img_file"]["name"] = uniqid('photo_');
                     if(file_exists("uploads/" . $_FILES["img_file"]["name"]))
                     {
                         header('Location: index.php?error=3');
                     }
                     else
-                    {
-                        $_FILES["img_file"]["name"] = uniqid('photo_');
+                    {                        
                         if(move_uploaded_file($_FILES["img_file"]["tmp_name"],"uploads/" . $_FILES["img_file"]["name"]))
                         {
                             $sql="INSERT INTO " . $table_for_images . " (img_name, img_loc)
