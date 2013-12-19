@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Image Uploader</title>
+		<title>Gallery of images</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
