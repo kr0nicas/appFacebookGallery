@@ -1,6 +1,4 @@
 $(document).ready(function()	{
-
-
 	$('#img_file').change(function() {
 		$('#photoCover').val($(this).val().replace("C:\\fakepath\\", ""));
 	});

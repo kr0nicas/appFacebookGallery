@@ -4,13 +4,19 @@
 
       switch($_GET['error']) {
         case 1:
-          $text = "Unable to save image into the database.";
+          $text = "No se pudo guardar la foto en la base de datos.";
           break;
         case 2:
-          $text = "Invalid image file.";
+          $text = "Archivo de imagen no válido.";
           break;
         case 3:
-          $text = "File already exists.";
+          $text = "La foto ya existe.";
+          break;
+        case 4:
+          $text = "La foto pesa más de 2 MB.";
+          break;
+        case 5:
+          $text = "No se pudo subir la foto.";
           break;
         default:
           $text = "Unknown message code.";
@@ -25,7 +31,7 @@
 
       switch($_GET['status']) {
         case 1:
-          $text = "Image uploaded successfully!";
+          $text = "Foto cargada con éxito!";
           break;
         default:
           $text = "Unknown message code.";

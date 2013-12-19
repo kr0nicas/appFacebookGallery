@@ -2,7 +2,7 @@
 
 	$host = "localhost";
 	$user = "root";
-	$pass = "";
+	$pass = "jacastaneda";
 	$dbname = "imageUploader";
 	$table_for_images = "images";
 
