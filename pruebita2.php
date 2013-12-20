@@ -74,7 +74,7 @@ $db->cuentaFullGallery($paginacion);
                                         onPageClicked: function(e,originalEvent,type,page){
                                             //window.location='pruebita.php?pag='+page
                                             $('#paginator').slideUp('100');
-                                            $("#divGrid").html('CARGANDO...');
+                                            $("#divGrid").html('<div class="text-center"><br><br><img src="img/ajax-loader.gif" /></div>');
                                             $("#divGrid").load('lista.php?pag='+page,function(){
                                                 $('#paginator').slideDown('100');
                                             });
@@ -82,7 +82,7 @@ $db->cuentaFullGallery($paginacion);
                             }
                             $('#paginator').bootstrapPaginator(options);
                             $('#paginator').slideUp('100');
-                            $("#divGrid").html('CARGANDO...');
+                            $("#divGrid").html('<div class="text-center"><br><br><img src="img/ajax-loader.gif" /></div>');
                             $("#divGrid").load('lista.php?pag=1',function(){
                                 $('#paginator').slideDown('100');
                             });

@@ -2,8 +2,8 @@
 
 	$host = "localhost";
 	$user = "root";
-	$pass = "jacastaneda";
-	$dbname = "imageUploader";
+	$pass = "";
+	$dbname = "imageuploader";
 	$table_for_images = "images";
 
 	$con = mysqli_connect($host, $user, $pass, $dbname);
