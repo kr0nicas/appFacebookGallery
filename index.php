@@ -43,7 +43,7 @@
 						<div class="controls">
                                                     <div class="fileinput fileinput-new" >
                                                       <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                                        <img src="img/no-picture.png" alt="...">
+                                                        <img src="img/no-picture.png" alt="..." data-trigger="fileinput">
                                                       </div>
                                                         <div class="fileinput-filename ">
                                                         </div>
@@ -57,7 +57,7 @@
 						</div>
 					</div>
 					<div class="control-group">
-                                                <label class="control-label" for="img_name">Ingrese una descripci&oacute;n : </label>
+                                                <label class="control-label" for="img_desc">Ingrese una descripci&oacute;n : </label>
 						<div class="controls">
 							<input type="text" name="img_desc" id="img_desc" required/><br />
 						</div>

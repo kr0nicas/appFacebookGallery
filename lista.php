@@ -16,7 +16,7 @@ $paginacion['current']=(isset($_GET['pag'])) ? $_GET['pag'] : 1;
 					<?php
 						foreach($result as $row)	{
 							echo '<li>
-								<a href="'. $row->img_loc .'" data-largesrc="' . $row->img_loc  .'" data-title="Azuki bean" data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
+								<a href="'. $row->img_loc .'" data-largesrc="' . $row->img_loc  .'" data-title="Descripci&oacute;n" data-description="'.$row->img_desc.'">
 									<img src="'. $row->img_loc  .'" alt="' . $row->img_loc  .'"/>
 								</a>
 							</li>';

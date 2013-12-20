@@ -24,8 +24,8 @@ class DataBase {
 
 	private function __construct()
         {
-            $this->conexion = @mysql_connect("localhost","root","");
-            mysql_select_db("imageuploader")or die("Cannot select DB");
+            $this->conexion = @mysql_connect("localhost","root","jacastaneda");
+            mysql_select_db("imageUploader")or die("Cannot select DB");
             self::$queries = 0;
             $this->resource = null;
 	}

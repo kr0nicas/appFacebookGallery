@@ -2,7 +2,7 @@
 
 	$host = "localhost";
 	$user = "root";
-	$pass = "";
+	$pass = "jacastaneda";
 	$dbname = "imageUploader";
 	$table_for_images = "images";
 
@@ -16,6 +16,7 @@
 	$createTable = "CREATE TABLE IF NOT EXISTS `" . $table_for_images . "` (                        
                         `id` int(11) NOT NULL AUTO_INCREMENT,
                         `img_name` text NOT NULL,
+                        `img_desc` text NOT NULL,
                         `img_loc` text NOT NULL,
                         `likes` int(11) DEFAULT NULL,
                         `fecha_hora_carga` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
