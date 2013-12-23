@@ -7,8 +7,8 @@
                      tu asistencia en estas Elecciones El Salvador 2014</div>
                      <?php echo "<a href=". $loginUrl .">Log in</a> <br>";
                       print_r($user_profile);
-                      var_dump($user_profile);
-                      echo "<a href =" . $logoutUrl . "> Logout</a>";
+                      echo "<a href =" . $logoutUrl . "> Logout</a> <br>";
+                      echo $user_profile['name'] . " " . $user_profile['id'] . $user_profile['email'];
                      ?>
                 </div>
             </div>
