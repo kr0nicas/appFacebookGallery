@@ -19,6 +19,4 @@
 							}
 					?>
 					</ul>
-
-
 <?php include('footer.php') ?>

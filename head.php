@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/jasny-bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/default.css" />
         <link rel="stylesheet" type="text/css" href="css/component.css" />
-        <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="css/bootstrap-responsive.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/style-faceApp.css" />
 
         <script type="text/javascript" src="js/jquery.min.js"></script>
