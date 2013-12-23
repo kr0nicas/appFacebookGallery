@@ -8,7 +8,7 @@
                      <?php echo "<a href=". $loginUrl .">Log in</a> <br>";
                       print_r($user_profile);
                       echo "<a href =" . $logoutUrl . "> Logout</a> <br>";
-                      echo $user_profile['name'] . " " . $user_profile['id'] . " " .$user_profile['email'];
+                      echo $user_profile['name'] . " " . $user_profile['id'] . $user_profile['email'];
                      ?>
                 </div>
             </div>
