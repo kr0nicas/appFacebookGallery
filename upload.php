@@ -1,7 +1,8 @@
 <?php
-  ini_set('display_errors','1');
-
-	require('includes/settings.php');
+ini_set('display_errors','1');
+include_once('DataBaseP.php');
+$db=DataBase::getInstance();
+	//require('includes/settings.php');
 
 	if ((($_FILES["img_file"]["type"] == "image/gif")
 	|| ($_FILES["img_file"]["type"] == "image/jpeg")
@@ -33,17 +34,14 @@
                     {
                         if(move_uploaded_file($_FILES["img_file"]["tmp_name"],"uploads/" . $_FILES["img_file"]["name"]))
                         {
-                            $sql="INSERT INTO " . $table_for_images . " (img_name, img_loc)
-                                               VALUES
-                                               ('" . $_FILES["img_file"]["name"]. "','uploads/" . $_FILES["img_file"]["name"] . "')";
-
-                            if(mysqli_query($con, $sql))
+                            $data = Array('name'=>$_FILES["img_file"]["tmp_name"]);
+                            if($db->insertRow($data))
                             {
-                                    header('Location: index.php?status=1');
+                                header('Location: index.php?status=1');
                             }
                             else
                             {
-                                    header('Location: index.php?error=1');
+                                //header('Location: index.php?error=1');
                             }
                         }
                         else

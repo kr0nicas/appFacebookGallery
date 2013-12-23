@@ -4,7 +4,7 @@
  * PHP Version 5  
  */
 
-////ini_set('display_errors', 1);
+ini_set('display_errors', 1);
 class DataBase {
 	private $conexion;
         //private $conexionbd;
@@ -24,21 +24,21 @@ class DataBase {
 
 	private function __construct()
         {
-            $this->conexion = @mysql_connect("localhost","root","tulito");
-            mysql_select_db("imageuploader")or die("Cannot select DB");
+            $conn_string = "host=localhost port=5432 dbname=imageuploader user=postgres password=tulito";
+            $this->conexion = pg_connect($conn_string);
             self::$queries = 0;
             $this->resource = null;
 	}
 
         public function execute_query($sql) 
         {	   
-            $RESP=mysql_query($sql,$this->conexion); 
+            $RESP=pg_query($this->conexion, $sql); 
             return $RESP;
         }//fin del metodo query
                 
 	public function execute()
         {		            
-            if(!($this->resource = mysql_query($this->sql, $this->conexion)))
+            if(!($this->resource = pg_query($this->conexion,$this->sql)))
             {
                     return null;
             }
@@ -50,15 +50,15 @@ class DataBase {
 
         public function count()
         {
-            $resource = mysql_query($this->sql, $this->conexion);
-            $cuantos = mysql_num_rows($resource);
+            $resource = pg_query($this->conexion, $this->sql);
+            $cuantos = pg_num_rows($resource);
             return $cuantos;
 	}
        
         
 	public function alter()
         {
-            if(!($this->resource = mysql_query($this->sql, $this->conexion)))
+            if(!($this->resource = pg_query($this->conexion, $this->sql)))
             {
                     return false;
             }
@@ -73,7 +73,7 @@ class DataBase {
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
             $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp']; 
-            //echo $sql;
+            echo $sql;
             $this->setQuery($sql);
             return $this->loadObjectList();
         }
@@ -110,7 +110,44 @@ class DataBase {
             $sql="SElECT * FROM images WHERE id='$id'";
             $this->setQuery($sql);
             return $this->loadObject();            
-        }         
+        }    
+        
+        public function createTable($id)
+        {
+            $sql="CREATE SEQUENCE images_id_seq;
+
+                    CREATE TABLE images (
+                                    id INTEGER NOT NULL DEFAULT nextval('images_id_seq'),
+                                    img_name TEXT NOT NULL,
+                                    img_desc TEXT NOT NULL,
+                                    img_loc TEXT NOT NULL,
+                                    likes INTEGER,
+                                    fecha_hora_carga TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                    CONSTRAINT images_pk PRIMARY KEY (id)
+                    );
+
+
+                    ALTER SEQUENCE images_id_seq OWNED BY images.id;";
+            $this->setQuery($sql);
+            return $this->execute();            
+        }  
+        
+        public function insertRow($data)
+        {
+            $sql="INSERT INTO images (img_name, img_loc)
+                    VALUES('" . $data['name']. "','uploads/" . $data['name'] . "')";
+            
+            $this->setQuery($sql);
+//              echo $sql;
+            if($this->execute() == null)
+            {
+               return FALSE; 
+            }
+            else
+            {
+                return TRUE;
+            }
+        }          
 
 	public function loadObjectList()
         {
@@ -119,7 +156,7 @@ class DataBase {
                     return null;
             }
             $array = array();
-            while ($row = @mysql_fetch_object($cur))
+            while ($row = @pg_fetch_object($cur))
             {
                     $array[] = $row;
             }
@@ -138,7 +175,7 @@ class DataBase {
 
 	public function freeResults()
         {
-            @mysql_free_result($this->resource);
+            @pg_free_result($this->resource);
             return true;
 	}
 
@@ -146,9 +183,9 @@ class DataBase {
         {
             if ($cur = $this->execute())
             {
-                if ($object = mysql_fetch_object($cur))
+                if ($object = pg_fetch_object($cur))
                 {
-                        @mysql_free_result($cur);
+                        @pg_free_result($cur);
                         return $object;
                 }
                 else 
@@ -164,8 +201,8 @@ class DataBase {
 
 	function __destruct()
         {
-            @mysql_free_result($this->resource);
-            @mysql_close($this->conexion);
+            @pg_free_result($this->resource);
+            @pg_close($this->conexion);
 	}
 }
 ?>

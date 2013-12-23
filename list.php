@@ -1,5 +1,5 @@
 <?php
-include_once('DataBase.php');
+include_once('DataBaseP.php');
 $db=DataBase::getInstance();
 $paginacion['total']=0;
 $paginacion['nXp']=5;
