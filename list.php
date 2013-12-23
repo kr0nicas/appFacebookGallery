@@ -1,0 +1,40 @@
+<?php
+include_once('DataBase.php');
+$db=DataBase::getInstance();
+$paginacion['total']=0;
+$paginacion['nXp']=5;
+$paginacion['current']=(isset($_GET['pag'])) ? $_GET['pag'] : 1;
+?>
+<!--		<div class="container">-->
+			<?php
+				$result=$db->getFullGallery($paginacion,$orderBy='id DESC');
+                        ?>
+			<div class="main og-grid">
+				<ul id="og-grid" class="og-grid">
+					<?php
+						foreach($result as $row)	{
+							echo '<li>
+								<a href="'. $row->img_loc .'" data-largesrc="' . $row->img_loc  .'" data-title="Descripci&oacute;n" data-description="'.$row->img_desc.'">
+									<img src="'. $row->img_loc  .'" alt="' . $row->img_loc  .'"/>
+								</a>
+							</li>';
+							}
+					?>
+					</ul>
+			</div>
+		</div>
+
+		<div id="backtotop">
+			<i class="icon-arrow-up icon-white"></i>
+		</div>
+
+		<script src="js/grid.js"></script>
+                <script type="text/javascript">
+			$(function() {
+                            Grid.init();
+                            $('#backtotop').on('click',function(){
+                                    $('html, body').animate({scrollTop:0}, 'slow');
+                                    return false;
+                            });                            
+			});
+		</script>                
