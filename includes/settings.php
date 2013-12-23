@@ -1,9 +1,9 @@
 <?php
 
-	$host = "localhost";
-	$user = "root";
-	$pass = "";
-	$dbname = "imageuploader";
+	$host = "ec2-54-204-16-70.compute-1.amazonaws.com:5432";
+	$user = "tpvoqltvyqvscw";
+	$pass = "Owasxi5r0iMTt3pXJyyus-5pCQ";
+	$dbname = "d4g2r0uh9aphfp";
 	$table_for_images = "images";
 
 	$con = mysqli_connect($host, $user, $pass, $dbname);
@@ -13,7 +13,7 @@
 	}
 
 
-	$createTable = "CREATE TABLE IF NOT EXISTS `" . $table_for_images . "` (                        
+	$createTable = "CREATE TABLE IF NOT EXISTS `" . $table_for_images . "` (
                         `id` int(11) NOT NULL AUTO_INCREMENT,
                         `img_name` text NOT NULL,
                         `img_desc` text NOT NULL,
