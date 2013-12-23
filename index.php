@@ -1,11 +1,15 @@
 <?php include('head.php') ?>
             <div class="row-fluid">
                 <div id="heading-app" class="span12">
-                    <h2 class="text-center">El poder esta en mis manos</h2><br>
+                    <h2 class="text-center">El poder está en mis manos</h2><br>
                     <p><h1 class="text-center font-big">¡YO SÍ VOTO!</h1></p>
                     <div class="hero-unit text-center">Sube tu Foto para confirmar
                      tu asistencia en estas Elecciones El Salvador 2014</div>
-                     <?php echo "<a href=". $loginUrl .">Log in</a>" ?>
+                     <?php echo "<a href=". $loginUrl .">Log in</a> <br>";
+                      print_r($user_profile);
+                      var_dump($user_profile);
+                      echo "<a href =" . $logoutUrl . "> Logout</a>";
+                     ?>
                 </div>
             </div>
             <div class="row-fluid">
