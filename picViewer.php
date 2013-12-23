@@ -1,6 +1,6 @@
 <?php 
 include('head.php');
-include_once('DataBase.php');
+include_once('DataBaseP.php');
 $db=DataBase::getInstance();
 //$picID = base64_decode($_GET['picID']);
 $picID = $_GET['picID'];
