@@ -103,14 +103,7 @@ class DataBase {
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
             $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp'];
             return $this->loadObjectList();            
-        }   
-        
-        public function getOne($id)
-        {
-            $sql="SElECT * FROM images WHERE id='$id'";
-            $this->setQuery($sql);
-            return $this->loadObject();            
-        }         
+        }        
 
 	public function loadObjectList()
         {

@@ -23,8 +23,12 @@ if ($user) {
 if ($user) {
   $logoutUrl = $facebook->getLogoutUrl();
 } else {
+    $params = array(
+        'scope' => 'friends_likes, email',
+        'redirect_uri' => 'https://www.myapp.com/post_login_page'
+        );
   $statusUrl = $facebook->getLoginStatusUrl();
-  $loginUrl = $facebook->getLoginUrl();
+  $loginUrl = $facebook->getLoginUrl($params);
 }
 ?>
 <html>
