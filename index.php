@@ -1,12 +1,15 @@
 <?php include('head.php') ?>
             <div class="row-fluid">
-                <div class="span12">
+                <div id="heading-app" class="span12">
                     <h2 class="text-center">El poder esta en mis manos</h2><br>
                     <p><h1 class="text-center font-big">¡YO SÍ VOTO!</h1></p>
+                    <div class="hero-unit text-center">Sube tu Foto para confirmar
+                     tu asistencia en estas Elecciones El Salvador 2014</div>
+                     <?php echo "<a href=". $loginUrl .">Log in</a>" ?>
                 </div>
             </div>
             <div class="row-fluid">
-                <div class="span12">
+                <div class="span12 content-app">
                     <!-- Mensajes de error o validación -->
                     <div class="messages text-center" id="message">
                         <?php include('includes/messages.php'); ?>

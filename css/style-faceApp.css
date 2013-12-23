@@ -23,7 +23,7 @@ body{
 }
 
 .content-app{
-    background: white;
+    padding: 0px;
 }
 
 .thumbnail{
@@ -52,3 +52,14 @@ body{
     padding-bottom: 0px;
     border-bottom: 0px;
 }
+.hero-unit{
+    margin-top: 15px;
+    padding: 2px;
+}
+
+#heading-app h1 h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
