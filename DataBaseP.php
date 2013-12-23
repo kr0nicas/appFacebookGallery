@@ -72,7 +72,7 @@ class DataBase {
             $paginacion['total']=$this->count();
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
-            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp']; 
+            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT ". $paginacion['nXp']."  OFFSET ".$begin; 
             echo $sql;
             $this->setQuery($sql);
             return $this->loadObjectList();
@@ -91,7 +91,7 @@ class DataBase {
             $paginacion['total']=$n;
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
-            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp'];
+            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT ". $paginacion['nXp']."  OFFSET ".$begin; 
             $this->setQuery($sql);
             return $this->loadObjectList();            
         }
@@ -101,7 +101,7 @@ class DataBase {
             $paginacion['total']=$n;
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
-            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp'];
+            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT ". $paginacion['nXp']."  OFFSET ".$begin; 
             return $this->loadObjectList();            
         }   
         

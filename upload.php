@@ -34,7 +34,7 @@ $db=DataBase::getInstance();
                     {
                         if(move_uploaded_file($_FILES["img_file"]["tmp_name"],"uploads/" . $_FILES["img_file"]["name"]))
                         {
-                            $data = Array('name'=>$_FILES["img_file"]["tmp_name"]);
+                            $data = Array('name'=>$_FILES["img_file"]["name"]);
                             if($db->insertRow($data))
                             {
                                 header('Location: index.php?status=1');
