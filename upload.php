@@ -30,12 +30,12 @@
                         header('Location: index.php?error=3');
                     }
                     else
-                    {                        
+                    {
                         if(move_uploaded_file($_FILES["img_file"]["tmp_name"],"uploads/" . $_FILES["img_file"]["name"]))
                         {
-                            $sql="INSERT INTO " . $table_for_images . " (img_name, img_loc, img_desc)
+                            $sql="INSERT INTO " . $table_for_images . " (img_name, img_loc)
                                                VALUES
-                                               ('" . $_FILES["img_file"]["name"]. "','uploads/" . $_FILES["img_file"]["name"] . "','".$_POST["img_desc"]."')";
+                                               ('" . $_FILES["img_file"]["name"]. "','uploads/" . $_FILES["img_file"]["name"] . "')";
 
                             if(mysqli_query($con, $sql))
                             {

@@ -1,0 +1,51 @@
+<?php
+class upload
+{
+    //jacastaneda agregado 08/02/2013 para carga de archivos
+    public function validarTipoArch($tipoArch)
+    {
+        if(trim($this->fileTemp) == '')
+        {
+            return false;
+        }
+        $mime=mime_content_type($this->fileTemp);
+        //echo $mime;
+        if($tipoArch == 'doc')
+        {
+            $mimesVal=$this->mimesValidosDoc;
+        }
+        elseif($tipoArch == 'foto')
+        {
+            $mimesVal=$this->mimesValidosFoto;
+        }
+
+        if(in_array($mime,$mimesVal))
+        {
+            return true;
+        }
+        //echo $mime.'<<<<<<<<<<<<<<';
+        return false;
+    }
+
+    public function validarTamanioArch()
+    {
+        if($this->tamanioArch > $this->tamanioMax)
+        {
+            $this->error.='Archivo muy grande';
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    private function obtenerExt($nomArch)
+    {
+        $posicion=strrpos($nomArch, '.');
+        $ext=substr($nomArch, $posicion+1);
+        return strtolower($ext);
+    }
+}
+
+?>
