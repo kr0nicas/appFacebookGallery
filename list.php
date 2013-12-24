@@ -7,7 +7,7 @@ $paginacion['current']=(isset($_GET['pag'])) ? $_GET['pag'] : 1;
 ?>
 <!--		<div class="container">-->
 			<?php
-				$result=$db->getFullGallery($paginacion,$orderBy='id DESC');
+				$result=$db->getFullGallery($paginacion,$orderBy='id DESC',TRUE);
                         ?>
 			<div class="main og-grid">
 				<ul id="og-grid" class="og-grid">

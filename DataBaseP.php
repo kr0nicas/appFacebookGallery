@@ -23,7 +23,13 @@ class DataBase {
 	}
 
 	private function __construct()
-        {
+        {          
+            $host='ec2-54-204-16-70.compute-1.amazonaws.com';
+            $port='5432';
+            $db='d4g2r0uh9aphfp';
+            $usr='tpvoqltvyqvscw';
+            $pssw='Owasxi5r0iMTt3pXJyyus-5pCQ';
+            //$conn_string = "host=localhost port=5432 dbname=imageuploader user=postgres password=tulito";
             $conn_string = "host=localhost port=5432 dbname=imageuploader user=postgres password=tulito";
             $this->conexion = pg_connect($conn_string);
             self::$queries = 0;
@@ -70,47 +76,53 @@ class DataBase {
             $pass= hash('sha256', $password);
             $sql="SElECT * users WHERE user_name ='$userName' AND user_password='$pass'";
             $this->setQuery($sql);
-            //return $this->loadObject();                          
-            return null;
+            return $this->loadObject();                          
+            //return null;
         }
         
-        public function getFullGallery(&$paginacion,$orderBy='id DESC')
+        public function getFullGallery(&$paginacion,$orderBy='id DESC',$approved=TRUE)
         {
-            $sqlCount="SELECT * FROM images";
+            $approved=($approved) ? 'TRUE' : 'ELSE';
+            
+            $sqlCount="SELECT * FROM images WHERE img_approved=$approved";
             $this->setQuery($sqlCount);            
             $paginacion['total']=$this->count();
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
-            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT ". $paginacion['nXp']."  OFFSET ".$begin; 
+            $sql="SElECT * FROM images WHERE img_approved=$approved ORDER BY $orderBy LIMIT ". $paginacion['nXp']."  OFFSET ".$begin; 
 //            echo $sql;
             $this->setQuery($sql);
             return $this->loadObjectList();
         }
         
-        public function cuentaFullGallery(&$paginacion)
+        public function cuentaFullGallery(&$paginacion,$approved=TRUE)
         {
-            $sqlCount="SELECT * FROM images";
+            $approved=($approved) ? 'TRUE' : 'ELSE';
+            
+            $sqlCount="SELECT * FROM images WHERE img_approved=$approved";
             $this->setQuery($sqlCount);            
             $paginacion['total']=$this->count();
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);            
         }
         
-        public function getLastEntries(&$paginacion,$orderBy='id DESC', $n=40)
-        {            
+        public function getLastEntries(&$paginacion,$orderBy='id DESC', $n=40, $approved=TRUE)
+        {   
+            $approved=($approved) ? 'TRUE' : 'ELSE';
+            
             $paginacion['total']=$n;
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
-            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT ". $paginacion['nXp']."  OFFSET ".$begin; 
+            $sql="SElECT * FROM images WHERE img_approved=$approved ORDER BY $orderBy LIMIT ". $paginacion['nXp']."  OFFSET ".$begin; 
             $this->setQuery($sql);
             return $this->loadObjectList();            
         }
         
-        public function getMoreLiked(&$paginacion,$orderBy='likes DESC', $n=40)
+        public function getMoreLiked(&$paginacion,$orderBy='likes DESC', $n=40, $approved=TRUE)
         {
             $paginacion['total']=$n;
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
-            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT ". $paginacion['nXp']."  OFFSET ".$begin; 
+            $sql="SElECT * FROM images WHERE img_approved=$approved ORDER BY $orderBy LIMIT ". $paginacion['nXp']."  OFFSET ".$begin; 
             return $this->loadObjectList();            
         }   
         

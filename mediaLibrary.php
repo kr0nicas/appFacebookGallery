@@ -5,7 +5,7 @@ $db=DataBase::getInstance();
 $paginacion['total']=0;
 $paginacion['nXp']=5;
 $paginacion['current']=1;
-$db->cuentaFullGallery($paginacion);
+$db->cuentaFullGallery($paginacion, TRUE);
 ?>
 <?php include('head.php') ?>
                 <script type="text/javascript">
