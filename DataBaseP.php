@@ -65,15 +65,6 @@ class DataBase {
             return true;
 	}
         
-        public function login($userName, $password)
-        {
-            $pass= hash('sha256', $password);
-            $sql="SElECT * users WHERE user_name ='$userName' AND user_password='$pass'";
-            $this->setQuery($sql);
-            //return $this->loadObject();                          
-            return null;
-        }
-        
         public function getFullGallery(&$paginacion,$orderBy='id DESC')
         {
             $sqlCount="SELECT * FROM images";
