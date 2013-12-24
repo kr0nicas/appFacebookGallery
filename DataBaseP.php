@@ -30,7 +30,7 @@ class DataBase {
             $usr='tpvoqltvyqvscw';
             $pssw='Owasxi5r0iMTt3pXJyyus-5pCQ';
             //$conn_string = "host=localhost port=5432 dbname=imageuploader user=postgres password=tulito";
-            $conn_string = "host=localhost port=5432 dbname=imageuploader user=postgres password=tulito";
+            $conn_string = "host=$host port=$port dbname=$db user=$usr password=$pssw";
             $this->conexion = pg_connect($conn_string);
             self::$queries = 0;
             $this->resource = null;

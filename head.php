@@ -40,7 +40,7 @@ else
     $statusUrl = $facebook->getLoginStatusUrl();
     $loginUrl = $facebook->getLoginUrl($params);
 }
-//$loguedin=TRUE;
+$loguedin=TRUE;
 ?>
 <html>
     <head>
