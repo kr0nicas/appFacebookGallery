@@ -50,6 +50,7 @@ if ($user) {
         <script type="text/javascript" src="js/scripts.js"></script>
         <script type="text/javascript" src="js/scriptsUpload.js"></script>
         <script src="js/modernizr.custom.js"></script>
+        <script src="js/bootstrap-paginator.min.js"></script>
     </head>
 
     <body>

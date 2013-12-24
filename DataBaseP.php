@@ -73,7 +73,7 @@ class DataBase {
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
             $sql="SElECT * FROM images ORDER BY $orderBy LIMIT ". $paginacion['nXp']."  OFFSET ".$begin; 
-            echo $sql;
+//            echo $sql;
             $this->setQuery($sql);
             return $this->loadObjectList();
         }
@@ -112,11 +112,11 @@ class DataBase {
             return $this->loadObject();            
         }    
         
-        public function createTable($id)
+        public function createTable()
         {
-            $sql="CREATE SEQUENCE images_id_seq;
+            $sql="CREATE SEQUENCE IF NOT EXISTS  images_id_seq;
 
-                    CREATE TABLE images (
+                    CREATE TABLE IF NOT EXISTS  images (
                                     id INTEGER NOT NULL DEFAULT nextval('images_id_seq'),
                                     img_name TEXT NOT NULL,
                                     img_desc TEXT NOT NULL,

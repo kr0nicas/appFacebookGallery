@@ -32,7 +32,8 @@
                                                     <img src="img/no-picture.png" alt="..." data-trigger="fileinput">
                                                 </div>
                                                 <div class="fileinput-preview fileinput-exists thumbnail" ></div>
-                                                <span class="btn btn-primary btn-file"><span class="fileinput-new">Seleccione una foto</span>
+                                                <span class="btn btn-primary btn-file">
+                                                <span class="fileinput-new">Seleccione una foto</span>
                                                 <span class="fileinput-exists ">Cambiar</span><input type="file" name="..."></span>
                                                 <a href="#" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">Remover</a>
                                            </div>
@@ -46,7 +47,7 @@
                     <hr />
                     <div class="text-center">
                             <button type="submit" class="btn btn-success" id="upload-btn"><i class="icon-circle-arrow-up icon-white"></i> Subir la foto</button>
-                            <a href="mediaLibrary.php" class="btn btn-info"><i class="icon-picture"></i> Media Library</a>
+                            <a href="mediaLibrary.php" class="btn btn-info"><i class="icon-picture"></i> Ver la galer&iacute;a</a>
                     </div>
                 </form>
                 </div>
