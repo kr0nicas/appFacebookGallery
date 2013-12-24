@@ -34,7 +34,7 @@ else
     //echo $user_profile['name'] . " " . $user_profile['id'] . $user_profile['email'];
                        
     
-    $params = array('scope' => 'friends_likes, email'
+    $params = array('scope' => 'friends_likes, email',
                     );
     
     $statusUrl = $facebook->getLoginStatusUrl();
