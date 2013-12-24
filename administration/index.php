@@ -3,15 +3,17 @@
         <title>¡Yo sí voto! Administraci&oacute;n</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="../../css/bootstrap-responsive.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="../../css/style-faceApp.css" />
+        <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../css/style-faceApp.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-        <script type="text/javascript" src="../../js/jquery.min.js"></script>
-        <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     </head>
-
+<?php
+//echo hash('sha256', 'adminFG2014');
+?>
     <body>
 
         <div class="container well">
@@ -30,7 +32,7 @@
                         <div class="row-fluid">
                             <div class="span12">
                                 <div class="span4 hand-right">
-                                    <img src="../../img/hand-right.png" alt="">
+                                    <img src="../img/hand-right.png" alt="">
                                 </div>
                                <div class="span4 text-center">
                                             <div class="container">
@@ -38,8 +40,8 @@
                                                     <div class="col-sm-6 col-md-4 col-md-offset-4">
                                                         <h1 class="text-center login-title">Ingrese con sus credenciales</h1>
                                                         <div class="account-wall">
-                                                            <img class="profile-img" src="../../img/no-picture.png" />
-                                                            <form class="form-signin" method="POST" action="login.php">
+                                                            <img class="profile-img" src="../img/no-picture.png" />
+                                                            <form class="form-signin" method="POST" action="users/login.php">
                                                                 <input type="text" name="usrName" class="form-control" placeholder="Nombre de usuario" required autofocus>
                                                                 <input type="password" name="password" class="form-control" placeholder="Password" required>
                                                                 <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>                           
@@ -50,7 +52,7 @@
                                             </div>
                                </div>
                                <div class="span4 hand-left">
-                                   <img src="../../img/hand-left.png" alt="">
+                                   <img src="../img/hand-left.png" alt="">
                                </div>
                         </div>
                     <hr />

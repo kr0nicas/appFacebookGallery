@@ -3,7 +3,10 @@
                     Una campaña por www.fundaspad.org | Elecciones El Salvador 2014
                </div>
         </div>
-        <script src="js/grid.js"></script>
+        <?php
+        $prev=(trim($prev) != '') ? $prev : '';
+        ?>
+        <script src="<?php echo $prev;?>js/grid.js"></script>
         <script>
             $(function() {
                 Grid.init();

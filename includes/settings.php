@@ -1,5 +1,11 @@
 <?php
 $sgbd='postgres';
+//$host='localhost';
+//$port='5432';
+//$db='imageuploader';
+//$usr='postgres';
+//$pssw='tulito';
+
 $host='ec2-54-204-16-70.compute-1.amazonaws.com';
 $port='5432';
 $db='d4g2r0uh9aphfp';
@@ -11,6 +17,7 @@ $pssw='Owasxi5r0iMTt3pXJyyus-5pCQ';
 //$db='imageuploader';
 //$usr='root';
 //$pssw='tulito';
+$prev=(trim($prev) != '') ? $prev : '';
 
 if($sgbd =='mysql')
 {
