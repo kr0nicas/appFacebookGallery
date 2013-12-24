@@ -1,16 +1,16 @@
 <?php
-$sgbd='mysql';
-//$host='ec2-54-204-16-70.compute-1.amazonaws.com';
-//$port='5432';
-//$db='d4g2r0uh9aphfp';
-//$usr='tpvoqltvyqvscw';
-//$pssw='Owasxi5r0iMTt3pXJyyus-5pCQ';
+$sgbd='postgres';
+$host='ec2-54-204-16-70.compute-1.amazonaws.com';
+$port='5432';
+$db='d4g2r0uh9aphfp';
+$usr='tpvoqltvyqvscw';
+$pssw='Owasxi5r0iMTt3pXJyyus-5pCQ';
 
-$host='localhost';
-$port='3600';
-$db='imageuploader';
-$usr='root';
-$pssw='tulito';
+//$host='localhost';
+//$port='3600';
+//$db='imageuploader';
+//$usr='root';
+//$pssw='tulito';
 
 if($sgbd =='mysql')
 {
