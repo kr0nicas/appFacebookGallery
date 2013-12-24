@@ -13,20 +13,19 @@ class DataBase {
 	public static $queries;
 	private static $_singleton;
 
-	public static function getInstance()
+	public static function getInstance($host,$port,$db,$usr,$pssw)
         {
             if(is_null(self::$_singleton)) 
             {
-                    self::$_singleton = new DataBase();
+                    self::$_singleton = new DataBase($host,$port,$db,$usr,$pssw);
             }
             return self::$_singleton;
 	}
 
-	private function __construct()
+	private function __construct($host,$port,$db,$usr,$pssw)
         {
-            //$this->conexion = @mysql_connect("localhost","root","tulito");
-            $this->conexion = mysql_connect("173.199.186.196:3600","cloudsvc_appfb","appFB54321")or die(mysql_error());
-            mysql_select_db("imageuploader")or die("Cannot select DB");
+            $this->conexion = mysql_connect("$host:$port",$usr,$pssw)or die(mysql_error());
+            mysql_select_db($db)or die("Cannot select DB");
             self::$queries = 0;
             $this->resource = null;
 	}
@@ -66,46 +65,103 @@ class DataBase {
             return true;
 	}
         
-        public function getFullGallery(&$paginacion,$orderBy='id DESC')
+        public function login($userName, $password)
         {
-            $sqlCount="SELECT * FROM images";
+            $pass= hash('sha256', $password);            
+            
+            $sql="SElECT * users WHERE user_name ='$userName' AND user_password='$pass'";
+            $this->setQuery($sql);
+            return $this->loadObject();                          
+            //return null;
+        }        
+        
+        public function getFullGallery(&$paginacion,$orderBy='id DESC',$approved=TRUE)
+        {
+            $approved=($approved) ? '1' : '0';
+            
+            $sqlCount="SELECT * FROM images WHERE img_approved=$approved";
             $this->setQuery($sqlCount);            
             $paginacion['total']=$this->count();
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
-            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp']; 
+            $sql="SElECT * FROM images WHERE img_approved=$approved ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp']; 
             //echo $sql;
             $this->setQuery($sql);
             return $this->loadObjectList();
         }
         
-        public function cuentaFullGallery(&$paginacion)
+        public function cuentaFullGallery(&$paginacion, $approved=TRUE)
         {
-            $sqlCount="SELECT * FROM images";
+            $approved=($approved) ? '1' : '0';
+            
+            $sqlCount="SELECT * FROM images WHERE img_approved=$approved ";
+//              echo $sqlCount;
             $this->setQuery($sqlCount);            
             $paginacion['total']=$this->count();
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);            
         }
         
-        public function getLastEntries(&$paginacion,$orderBy='id DESC', $n=40)
+        public function getLastEntries(&$paginacion,$orderBy='id DESC', $n=40, $approved=TRUE)
         {            
             $paginacion['total']=$n;
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
-            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp'];
+            $sql="SElECT * FROM images WHERE img_approved=$approved ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp'];
             $this->setQuery($sql);
             return $this->loadObjectList();            
         }
         
-        public function getMoreLiked(&$paginacion,$orderBy='likes DESC', $n=40)
+        public function getMoreLiked(&$paginacion,$orderBy='likes DESC', $n=40, $approved=TRUE)
         {
             $paginacion['total']=$n;
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
-            $sql="SElECT * FROM images ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp'];
+            $sql="SElECT * FROM images WHERE img_approved=$approved ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp'];
             return $this->loadObjectList();            
-        }        
-
+        }  
+        
+        public function getOne($id)
+        {
+            $sql="SElECT * FROM images WHERE id='$id'";
+            $this->setQuery($sql);
+            return $this->loadObject();            
+        }
+        
+        public function createTable()
+        {
+            $sql="CREATE TABLE IF NOT EXISTS `images` (
+                    `id` int(11) NOT NULL AUTO_INCREMENT,
+                    `img_name` text NOT NULL,
+                    `img_desc` text NOT NULL,
+                    `img_loc` text NOT NULL,
+                    `likes` int(11) DEFAULT NULL,
+                    `fecha_hora_carga` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+                    `img_approved` tinyint(4) NOT NULL DEFAULT '0',
+                    `facebook_user_id` varchar(40) NOT NULL,
+                    PRIMARY KEY (`id`)
+                    ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;";
+            
+            $this->setQuery($sql);
+            return $this->execute();            
+        }  
+        
+        public function insertRow($data)
+        {
+            $sql="INSERT INTO images (img_name, img_loc)
+                    VALUES('" . $data['name']. "','uploads/" . $data['name'] . "')";
+            
+            $this->setQuery($sql);
+//              echo $sql;
+            if($this->execute() == null)
+            {
+               return FALSE; 
+            }
+            else
+            {
+                return TRUE;
+            }
+        }          
+                
 	public function loadObjectList()
         {
             if (!($cur = $this->execute()))

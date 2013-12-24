@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors','1');
-include_once('DataBaseP.php');
-$db=DataBase::getInstance();
+include_once('includes/settings.php');
+//$db=DataBase::getInstance();
 	//require('includes/settings.php');
 
 	if ((($_FILES["img_file"]["type"] == "image/gif")

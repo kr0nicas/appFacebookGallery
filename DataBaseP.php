@@ -13,23 +13,17 @@ class DataBase {
 	public static $queries;
 	private static $_singleton;
 
-	public static function getInstance()
+	public static function getInstance($host,$port,$db,$usr,$pssw)
         {
             if(is_null(self::$_singleton)) 
             {
-                    self::$_singleton = new DataBase();
+                    self::$_singleton = new DataBase($host,$port,$db,$usr,$pssw);
             }
             return self::$_singleton;
 	}
 
-	private function __construct()
+	private function __construct($host,$port,$db,$usr,$pssw)
         {          
-            $host='ec2-54-204-16-70.compute-1.amazonaws.com';
-            $port='5432';
-            $db='d4g2r0uh9aphfp';
-            $usr='tpvoqltvyqvscw';
-            $pssw='Owasxi5r0iMTt3pXJyyus-5pCQ';
-            //$conn_string = "host=localhost port=5432 dbname=imageuploader user=postgres password=tulito";
             $conn_string = "host=$host port=$port dbname=$db user=$usr password=$pssw";
             $this->conexion = pg_connect($conn_string);
             self::$queries = 0;

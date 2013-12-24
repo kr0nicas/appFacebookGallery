@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
-include_once('DataBaseP.php');
-$db=DataBase::getInstance();
+include_once('includes/settings.php');
 $paginacion['total']=0;
 $paginacion['nXp']=5;
 $paginacion['current']=1;

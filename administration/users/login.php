@@ -1,9 +1,9 @@
 <?php
-include_once('../../DataBaseP.php');
-$db=DataBase::getInstance();
+ini_set('display_errors','1');
+$prev='../../';
+include_once('../../includes/settings.php');
 if(isset($_POST['usrName']) && isset($_POST['password']))
 {
-    //$POST
     $login=$db->login($_POST['usrName'], $_POST['password']);
     if(($login != null) || ($_POST['usrName'] == 'admin' && $_POST['password'] == 'admin'))
     {
