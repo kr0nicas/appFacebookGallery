@@ -16,6 +16,7 @@ if($user)
     {
         // Proceed knowing you have a logged in user who's authenticated.
         $user_profile = $facebook->api('/me');
+        print_r($user_profile);    
         $logoutUrl = $facebook->getLogoutUrl();
     } 
     catch (FacebookApiException $e) 
@@ -24,7 +25,7 @@ if($user)
         $user = null;
     }
     
-    echo "<a href =" . $logoutUrl . "> Logout</a> <br>";
+    //echo "<a href =" . $logoutUrl . "> Logout</a> <br>";
 }
 else
 {
