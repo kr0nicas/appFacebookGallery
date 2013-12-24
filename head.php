@@ -34,13 +34,13 @@ else
                        
     
     $params = array('scope' => 'friends_likes, email',
-                    'redirect_uri' => 'https://www.myapp.com/post_login_page'
+                    'redirect_uri' => 'http://glacial-ridge-1341.herokuapp.com/index.php'
                     );
     
     $statusUrl = $facebook->getLoginStatusUrl();
     $loginUrl = $facebook->getLoginUrl($params);
 }
-$loguedin=TRUE;
+//$loguedin=TRUE;
 ?>
 <html>
     <head>
