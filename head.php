@@ -34,8 +34,7 @@ else
     //echo $user_profile['name'] . " " . $user_profile['id'] . $user_profile['email'];
                        
     
-    $params = array('scope' => 'friends_likes, email',
-                    'redirect_uri' => 'http://glacial-ridge-1341.herokuapp.com/index.php',
+    $params = array('scope' => 'friends_likes, email'
                     );
     
     $statusUrl = $facebook->getLoginStatusUrl();
