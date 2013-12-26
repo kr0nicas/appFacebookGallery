@@ -164,7 +164,8 @@ class DataBase {
             {
                 return TRUE;
             }
-        }          
+        }  
+        
         public function approvePic($picID)
         {
             $sql="UPDATE images SET img_approved=1 WHERE id=$picID";
@@ -180,6 +181,41 @@ class DataBase {
                 return TRUE;
             }            
         }
+        
+        
+        public function likePic($user_profile,$picID)
+        {
+            $facebook_user_id=$user_profile['id'];
+            $facebook_user_email=$user_profile['email'];
+            $sql="INSERT INTO likes(facebook_user_id,id,like_active,email) VALUES('$facebook_user_id',$picID,1,'$facebook_user_email')";
+            
+            $this->setQuery($sql);
+//              echo $sql;
+            if($this->execute() == null)
+            {
+               return FALSE; 
+            }
+            else
+            {
+                return TRUE;
+            }            
+        }        
+        
+        public function alreadyLikePic($user_profile,$picID)
+        {
+            $facebook_user_id=$user_profile['id']; 
+            $sql="SELECT * FROM likes WHERE facebook_user_id='$facebook_user_id' AND like_active=1 AND id=$picID";
+            
+            $this->setQuery($sql);
+            if($this->count() > 0)
+            {
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }            
+        }           
         
 	public function loadObjectList()
         {
