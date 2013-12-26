@@ -1,29 +1,10 @@
 <?php
 include_once('includes/settings.php');
-$paginacion['total'] = 0;
-$paginacion['nXp'] = 5;
-$paginacion['current'] = (isset($_GET['pag'])) ? $_GET['pag'] : 1;
+$paginacion['total']=0;
+$paginacion['nXp']=5;
+$paginacion['current']=(isset($_GET['pag'])) ? $_GET['pag'] : 1;
 ?>
 <!--		<div class="container">-->
-<<<<<<< HEAD
-<?php
-$result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
-?>
-<div class="main og-grid">
-    <ul id="og-grid" class="og-grid">
-        <?php
-        foreach ($result as $row) {
-            $desc = "<a href='http://apps.facebook.com/cloud_sv/picViewer.php?picID=" . $row->id . "' </a>";
-            //$desc="<a href='#' >prueba</a>";
-            echo '<li><a href="' . $row->img_loc . '" data-largesrc="' . $row->img_loc . '" data-title="Descripci&oacute;n" data-description=" '. $desc .' ">'
-                    . '<img src="' . $row->img_loc . '" alt="' . $row->img_loc . '"/></a>
-                    </li>';
-        }
-        ?>
-    </ul>
-</div>
-</div>
-=======
 			<?php
 				$result=$db->getFullGallery($paginacion,$orderBy='id DESC',TRUE);
                         ?>
@@ -71,24 +52,11 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
 					</ul>
 			</div>
 		</div>
->>>>>>> 2f2d1927a3b6d537734f501c1f5cfc3fac3da908
 
-<div id="backtotop">
-    <i class="icon-arrow-up icon-white"></i>
-</div>
+		<div id="backtotop">
+			<i class="icon-arrow-up icon-white"></i>
+		</div>
 
-<<<<<<< HEAD
-<script src="js/grid.js"></script>
-<script type="text/javascript">
-    $(function() {
-        Grid.init();
-        $('#backtotop').on('click', function() {
-            $('html, body').animate({scrollTop: 0}, 'slow');
-            return false;
-        });
-    });
-</script>                
-=======
 		<script src="js/grid.js"></script>
                 <script type="text/javascript">
 			$(function() {
@@ -124,4 +92,3 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
                             });     
                         }                        
 		</script>                
->>>>>>> 2f2d1927a3b6d537734f501c1f5cfc3fac3da908
