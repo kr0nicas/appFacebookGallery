@@ -10,14 +10,26 @@ $paginacion['current']=(isset($_GET['pag'])) ? $_GET['pag'] : 1;
                         ?>
 			<div class="main og-grid">
 				<ul id="og-grid" class="og-grid">
-					<?php
-						foreach($result as $row)	{
-							echo '<li>
-								<a href="'. $row->img_loc .'" data-largesrc="' . $row->img_loc  .'" data-title="Descripci&oacute;n" data-description="'.$row->img_desc.'">
+					<?php                                               
+						foreach($result as $row)	
+                                                {
+                                                    $desc="
+                                                        <div id='fb-root'></div>
+                                                        <script>(function(d, s, id) {
+                                                        var js, fjs = d.getElementsByTagName(s)[0];
+                                                        if (d.getElementById(id)) return;
+                                                        js = d.createElement(s); js.id = id;
+                                                        js.src = '//connect.facebook.net/es_LA/all.js#xfbml=1&appId=1429268330635891';
+                                                        fjs.parentNode.insertBefore(js, fjs);
+                                                        }(document, 'script', 'facebook-jssdk'));</script>                                                        
+                                        <div class='fb-share-button' data-href='http://apps.facebook.com/cloud_sv/picViewer.php?picID=".$row->id." data-type='box_count'></div>";
+                                                    //$desc="<a href='#' >prueba</a>";
+                                                    echo '<li>
+								<a href="'. $row->img_loc .'" data-largesrc="' . $row->img_loc  .'" data-title="Descripci&oacute;n" data-description="'.$desc.'">
 									<img src="'. $row->img_loc  .'" alt="' . $row->img_loc  .'"/>
 								</a>
 							</li>';
-							}
+						}
 					?>
 					</ul>
 			</div>
