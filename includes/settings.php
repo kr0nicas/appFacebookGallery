@@ -1,10 +1,10 @@
 <?php
-$sgbd='postgres';
-$host='ec2-54-204-16-70.compute-1.amazonaws.com';
-$port='5432';
-$db='d4g2r0uh9aphfp';
-$usr='tpvoqltvyqvscw';
-$pssw='Owasxi5r0iMTt3pXJyyus-5pCQ';
+$sgbd='mysql';   // Puede ser "postgres" o "mysql"
+$host='imagesuploader.db.10794365.hostedresource.com';  //El host de la base de datos
+$port='3306';  // Puerto del host para la base de datos
+$db='imagesuploader'; // Nombre de la base de datos
+$usr='imagesuploader';  // Usuario de la base de datos
+$pssw='APPfb2014@';  // Password de la base de datos
 
 //$host='localhost';
 //$port='3600';
