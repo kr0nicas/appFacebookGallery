@@ -13,17 +13,35 @@ $paginacion['current']=(isset($_GET['pag'])) ? $_GET['pag'] : 1;
 					<?php                                               
 						foreach($result as $row)	
                                                 {
-                                                    $desc="
-                                                        <div id='fb-root'></div>
-                                                        <script>(function(d, s, id) {
-                                                        var js, fjs = d.getElementsByTagName(s)[0];
-                                                        if (d.getElementById(id)) return;
-                                                        js = d.createElement(s); js.id = id;
-                                                        js.src = '//connect.facebook.net/es_LA/all.js#xfbml=1&appId=1429268330635891';
-                                                        fjs.parentNode.insertBefore(js, fjs);
-                                                        }(document, 'script', 'facebook-jssdk'));</script>                                                        
-                                        <div class='fb-share-button' data-href='http://apps.facebook.com/cloud_sv/picViewer.php?picID=".$row->id." data-type='box_count'></div>";
-                                                    //$desc="<a href='#' >prueba</a>";
+//                                                    $desc="
+//                                                        <div id='fb-root'></div>
+//                                                        <script>(function(d, s, id) {
+//                                                        var js, fjs = d.getElementsByTagName(s)[0];
+//                                                        if (d.getElementById(id)) return;
+//                                                        js = d.createElement(s); js.id = id;
+//                                                        js.src = '//connect.facebook.net/es_LA/all.js#xfbml=1&appId=1429268330635891';
+//                                                        fjs.parentNode.insertBefore(js, fjs);
+//                                                        }(document, 'script', 'facebook-jssdk'));</script>                                                        
+//                                        <div class='fb-share-button' data-href='http://apps.facebook.com/cloud_sv/picViewer.php?picID=".$row->id." data-type='box_count'></div>
+//                                            
+//                                        icon-hand-up";
+                                                    
+                                                    $desc="<table>
+                                                                    <script type='text/javascript'>
+                                                                            $(function() {
+                                                                                $('.like-btn').on('click',function(){
+                                                                                    like();
+                                                                                })
+                                                                            });
+                                                                    </script>                                                            
+                                                                        <tr>
+                                                                            <th colspan='2'>
+                                                                            <br />
+                                                                            <button type='submit' class='btn btn-primary like-btn' picID='".$row->id."'><i class='icon-hand-up icon-white'></i> Me gusta esta foto</button>
+                                                                            </th>
+                                                                        </tr>                                 
+                                                                    </table";                                                    
+
                                                     echo '<li>
 								<a href="'. $row->img_loc .'" data-largesrc="' . $row->img_loc  .'" data-title="Descripci&oacute;n" data-description="'.$desc.'">
 									<img src="'. $row->img_loc  .'" alt="' . $row->img_loc  .'"/>
@@ -48,4 +66,29 @@ $paginacion['current']=(isset($_GET['pag'])) ? $_GET['pag'] : 1;
                                     return false;
                             });                            
 			});
+                        
+                        function like()
+                        {                              
+                            $.ajax({
+                                type: "POST",
+                                url: "picLike.php",
+                                data: {picID: $('.like-btn').attr('picID')},
+                                success: function(responseText)
+                                {
+                                    alert(responseText);
+                                    if(responseText == "1")
+                                    {
+                                        alert('like agregado');
+                                    }
+                                    else if(responseText == "2")
+                                    {
+                                        alert('ya le has dado like a esta foto');
+                                    }
+                                    else
+                                    {
+                                        alert('No se pudo realizar el like');
+                                    }
+                                }                                                                
+                            });     
+                        }                        
 		</script>                
