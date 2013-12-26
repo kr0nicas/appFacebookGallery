@@ -44,8 +44,8 @@ if($_SESSION['connected'] !== TRUE)
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-sm-6 col-md-4 col-md-offset-4">     
-                                                        <a >Mantenimiento de  usuarios</a>
-                                                        <br/><br/>
+<!--                                                        <a >Mantenimiento de  usuarios</a>
+                                                        <br/><br/>-->
                                                         <a href="picApproval.php">Aprobaci&oacute;n de fotograf&iacute;as</a>
                                                         <br/><br/>
                                                         <a href="users/logout.php">Logout</a>                                                    
