@@ -41,7 +41,7 @@ include('head.php');
                                     <?php
                                 } else {
                                     echo "Para cargar tu fotografia, debes ingresar con tus credenciales de Facebook";
-                                    echo "<br><br><a href=" . $loginUrl . "><img src='img/loguin.png'> Log in</a> <br>";
+                                    echo "<br><br><a href=" . $loginUrl . " target='_top'><img src='img/loguin.png'> Log in</a> <br>";
                                 }
                                 ?>
                             </div>
@@ -65,4 +65,9 @@ include('head.php');
             </form>
         </div>
     </div>
-    <?php include('footer.php') ?>
+    <?php
+    include('footer.php');
+//        echo '<script type="text/javascript">
+//        window.top.location = "https://apps.facebook.com/cloud_sv/";   
+//        </script>';    
+    ?> 

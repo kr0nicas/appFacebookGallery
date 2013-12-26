@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php 
 //ini_set('display_errors', '1');
+header('X-Frame-Options: GOFORIT');
 require_once 'src/facebook.php';
     $facebook = new Facebook(array(
         'appId'  => '1429268330635891',
@@ -40,7 +41,7 @@ else
     $statusUrl = $facebook->getLoginStatusUrl();
     $loginUrl = $facebook->getLoginUrl($params);
 }
-$loguedin=TRUE;
+//$loguedin=TRUE;
 ?>
 <html>
     <head>
