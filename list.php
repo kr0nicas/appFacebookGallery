@@ -12,7 +12,7 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
     <ul id="og-grid" class="og-grid">
         <?php
         foreach ($result as $row) {
-            $desc = '<a href="http://apps.facebook.com/cloud_sv/picViewer.php?picID=' . $row->id . '" </a>';
+            $desc = "<a href='http://apps.facebook.com/cloud_sv/picViewer.php?picID=" . $row->id . " </a>";
             //$desc="<a href='#' >prueba</a>";
             echo '<li><a href="' . $row->img_loc . '" data-largesrc="' . $row->img_loc . '" data-title="Descripci&oacute;n" data-description=" '. $desc .' ">'
                     . '<img src="' . $row->img_loc . '" alt="' . $row->img_loc . '"/></a>
