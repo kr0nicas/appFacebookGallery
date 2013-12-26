@@ -1,44 +1,38 @@
 <!DOCTYPE html>
-<?php 
+<?php
 //ini_set('display_errors', '1');
 header('X-Frame-Options: GOFORIT');
 require_once 'src/facebook.php';
-    $facebook = new Facebook(array(
-        'appId'  => '1429268330635891',
-        'secret' => '36f3d6a223c3aeee7c1e7950be654d98',
-));
+$facebook = new Facebook(array(
+    'appId' => '1429268330635891',
+    'secret' => '36f3d6a223c3aeee7c1e7950be654d98',
+        ));
 
 // Get User ID
 $user = $facebook->getUser();
-if($user) 
-{
-    $loguedin=TRUE;
-    try 
-    {
+if ($user) {
+    $loguedin = TRUE;
+    try {
         // Proceed knowing you have a logged in user who's authenticated.
         $user_profile = $facebook->api('/me');
-        print_r($user_profile);    
+        print_r($user_profile);
         $logoutUrl = $facebook->getLogoutUrl();
-    } 
-    catch (FacebookApiException $e) 
-    {
+    } catch (FacebookApiException $e) {
         error_log($e);
         $user = null;
     }
-    
+
     //echo "<a href =" . $logoutUrl . "> Logout</a> <br>";
-}
-else
-{
-    $loguedin=FALSE;
+} else {
+    $loguedin = FALSE;
     //print_r($user_profile);    
     //echo $user_profile['name'] . " " . $user_profile['id'] . $user_profile['email'];
-                       
-    
+
+
     $params = array('scope' => 'friends_likes, email',
-                    'redirect_uri' => 'https://apps.facebook.com/cloud_sv/',
-                    );
-    
+        'redirect_uri' => 'https://apps.facebook.com/cloud_sv/',
+    );
+
     $statusUrl = $facebook->getLoginStatusUrl();
     $loginUrl = $facebook->getLoginUrl($params);
 }
@@ -68,4 +62,14 @@ else
 
     <body>
 
+        <div id='fb-root'></div>
+        <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = '//connect.facebook.net/es_LA/all.js#xfbml=1&appId=1429268330635891';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>  
         <div class="container well">
