@@ -36,6 +36,7 @@ else
                        
     
     $params = array('scope' => 'friends_likes, email',
+                    'redirect_uri' => 'https://apps.facebook.com/cloud_sv/',
                     );
     
     $statusUrl = $facebook->getLoginStatusUrl();
