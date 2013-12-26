@@ -69,7 +69,7 @@ class DataBase {
         {
             $pass= hash('sha256', $password);            
             
-            $sql="SElECT * users WHERE user_name ='$userName' AND user_password='$pass'";
+            $sql="SElECT * FROM users WHERE user_name ='$userName' AND user_password='$pass'";
             $this->setQuery($sql);
             return $this->loadObject();                          
             //return null;
@@ -102,7 +102,9 @@ class DataBase {
         }
         
         public function getLastEntries(&$paginacion,$orderBy='id DESC', $n=40, $approved=TRUE)
-        {            
+        {    
+            $approved=($approved) ? '1' : '0';
+            
             $paginacion['total']=$n;
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
@@ -113,6 +115,8 @@ class DataBase {
         
         public function getMoreLiked(&$paginacion,$orderBy='likes DESC', $n=40, $approved=TRUE)
         {
+            $approved=($approved) ? '1' : '0';
+            
             $paginacion['total']=$n;
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
@@ -161,7 +165,22 @@ class DataBase {
                 return TRUE;
             }
         }          
-                
+        public function approvePic($picID)
+        {
+            $sql="UPDATE images SET img_approved=1 WHERE id=$picID";
+            
+            $this->setQuery($sql);
+//              echo $sql;
+            if($this->execute() == null)
+            {
+               return FALSE; 
+            }
+            else
+            {
+                return TRUE;
+            }            
+        }
+        
 	public function loadObjectList()
         {
             if (!($cur = $this->execute()))

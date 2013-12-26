@@ -68,15 +68,16 @@ class DataBase {
         public function login($userName, $password)
         {
             $pass= hash('sha256', $password);
-            $sql="SElECT * users WHERE user_name ='$userName' AND user_password='$pass'";
+            $sql="SElECT * FROM users WHERE user_name ='$userName' AND user_password='$pass'";
             $this->setQuery($sql);
+//            echo $sql;
             return $this->loadObject();                          
             //return null;
         }
         
         public function getFullGallery(&$paginacion,$orderBy='id DESC',$approved=TRUE)
         {
-            $approved=($approved) ? 'TRUE' : 'ELSE';
+            $approved=($approved) ? 'TRUE' : 'FALSE';
             
             $sqlCount="SELECT * FROM images WHERE img_approved=$approved";
             $this->setQuery($sqlCount);            
@@ -91,7 +92,7 @@ class DataBase {
         
         public function cuentaFullGallery(&$paginacion,$approved=TRUE)
         {
-            $approved=($approved) ? 'TRUE' : 'ELSE';
+            $approved=($approved) ? 'TRUE' : 'FALSE';
             
             $sqlCount="SELECT * FROM images WHERE img_approved=$approved";
             $this->setQuery($sqlCount);            
@@ -101,7 +102,7 @@ class DataBase {
         
         public function getLastEntries(&$paginacion,$orderBy='id DESC', $n=40, $approved=TRUE)
         {   
-            $approved=($approved) ? 'TRUE' : 'ELSE';
+            $approved=($approved) ? 'TRUE' : 'FALSE';
             
             $paginacion['total']=$n;
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
@@ -162,7 +163,23 @@ class DataBase {
             {
                 return TRUE;
             }
-        }          
+        }    
+        
+        public function approvePic($picID)
+        {
+            $sql="UPDATE images SET img_approved='TRUE' WHERE id=$picID";
+            
+            $this->setQuery($sql);
+//              echo $sql;
+            if($this->execute() == null)
+            {
+               return FALSE; 
+            }
+            else
+            {
+                return TRUE;
+            }            
+        }
 
 	public function loadObjectList()
         {

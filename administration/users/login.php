@@ -9,25 +9,27 @@ function sanitizar(&$valor,$llave)
     $valor=stripslashes($valor);
 }
 
-array_walk($_POST, 'filtraEtiquetas');//filtra etiquetas
+array_walk($_POST, 'sanitizar');//filtra etiquetas
 
 if(isset($_POST['usrName']) && isset($_POST['password']))
 {
     $login=$db->login($_POST['usrName'], $_POST['password']);
-    if(($login != null) || ($_POST['usrName'] == 'admin' && $_POST['password'] == 'admin'))
+//    if(($login != null) || ($_POST['usrName'] == 'admin' && $_POST['password'] == 'admin'))
+    if($login != null)
     {
         session_start();
-        $_SESSION['usr']=$login;        
-        header('location:administration.php');    
+        $_SESSION['usr']=$login;      
+        $_SESSION['connected']=TRUE;  
+        header('location:../administration.php');    
     }
     else
     {
-        header('location:index.php');
+        header('location:../index.php');
     }
     
 }
 else
 {
-    header('location:index.php');
+    header('location:../index.php');
 }
 ?>

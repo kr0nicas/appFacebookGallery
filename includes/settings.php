@@ -6,11 +6,7 @@ $db='imagesuploader'; // Nombre de la base de datos
 $usr='imagesuploader';  // Usuario de la base de datos
 $pssw='APPfb2014@';  // Password de la base de datos
 
-//$host='localhost';
-//$port='3600';
-//$db='imageuploader';
-//$usr='root';
-//$pssw='tulito';
+$prev=(trim($prev) != '') ? $prev : '';
 
 if($sgbd =='mysql')
 {
