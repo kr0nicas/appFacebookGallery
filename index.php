@@ -5,8 +5,8 @@ include('head.php');
     <div id="heading-app" class="span12">
         <h2 class="text-center">El poder está en mis manos</h2><br>
         <p><h1 class="text-center font-big">Date un Chance Vota x Vos</h1></p>
-        <div class="hero-unit text-center">
-            Sube tu foto para confirmar tú asistencia e invitar a otros que participen de las próximas elecciones.
+        <div class="hero-unit text-center well">
+            Te invitamos a que subas una fotografía en la que demuestres que te das un chance y votar&aacute;s en las pr&oacute;ximas elecciones. Invita a otros j&oacute;venes a que se den un chance.
         </div>
     </div>
 </div>
