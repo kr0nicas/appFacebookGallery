@@ -15,7 +15,7 @@ if ($user) {
     try {
         // Proceed knowing you have a logged in user who's authenticated.
         $user_profile = $facebook->api('/me');
-        print_r($user_profile);
+        //print_r($user_profile);
         $logoutUrl = $facebook->getLogoutUrl();
     } catch (FacebookApiException $e) {
         error_log($e);

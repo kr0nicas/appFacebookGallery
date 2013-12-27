@@ -45,8 +45,36 @@ if(count($picRow) == 0)
                     <hr />
                     <div class="text-center">
 <!--                            <button type="submit" class="btn btn-success" id="upload-btn"><i class="icon-circle-arrow-up icon-white"></i> Subir la foto</button>-->
+                        <button onclick="like()" class='btn btn-primary like-btn' picID='<?php echo $picID;?>'><i class='icon-hand-up icon-white'></i> Me gusta esta foto</button>
                         <a href="mediaLibrary.php" class="btn btn-info"><i class="icon-picture"></i> Ver la galer&iacute;a completa</a>
                     </div>
                 </div>
                 </div>
+                
+                <script type="text/javascript">
+                        function like()
+                        {                              
+                            $.ajax({
+                                type: "POST",
+                                url: "picLike.php",
+                                data: {picID: $('.like-btn').attr('picID')},
+                                success: function(responseText)
+                                {
+                                    //alert(responseText);
+                                    if(responseText == "1")
+                                    {
+                                        alert('like agregado');
+                                    }
+                                    else if(responseText == "2")
+                                    {
+                                        alert('ya le has dado like a esta foto');
+                                    }
+                                    else
+                                    {
+                                        alert('No se pudo realizar el like');
+                                    }
+                                }                                                                
+                            });     
+                        }                        
+		</script>                    
 <?php include('footer.php') ?>
