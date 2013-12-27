@@ -15,7 +15,6 @@ try
     // Proceed knowing you have a logged in user who's authenticated.
     $user_profile = $facebook->api('/me');
 //    $logoutUrl = $facebook->getLogoutUrl();
-    //die($_POST['picID'].'asda');
     $picID=$_POST['picID'];
     if(! $db->alReadyLikePic($user_profile,$picID))
     {

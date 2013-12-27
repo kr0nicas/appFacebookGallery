@@ -413,7 +413,6 @@ var Grid = (function() {
 
 		},
 		open : function() {
-
 			setTimeout( $.proxy( function() {
 				// set the height for the preview and the item
 				this.setHeights();
