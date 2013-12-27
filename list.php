@@ -13,7 +13,7 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
         <?php
         foreach ($result as $row) {
             $desc = "<p>Yo si me doy chance y me presentare a dar mi voto en las 
-                Proximas elecciones de mi Pais El Salvador</p><table>
+                Próximas elecciones de mi País El Salvador.</p><table>
                 <script type='text/javascript'>
                     $(function() {
                         $('.like-btn').on('click',function(){
@@ -30,7 +30,7 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
                 </tr>                                 
               </table>";
             echo '<li>'
-            . '<a href="' . $row->img_loc . '" data-largesrc="' . $row->img_loc . '" data-title="Descripci&oacute;n" data-description="' . $desc . '">
+            . '<a href="' . $row->img_loc . '" data-largesrc="' . $row->img_loc . '" data-title="El poder esta en mi voto!" data-description="' . $desc . '">
                 <img src="' . $row->img_loc . '" alt="' . $row->img_loc . '"/>
 								</a>
 							</li>';
