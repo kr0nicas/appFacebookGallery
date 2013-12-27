@@ -45,7 +45,7 @@ if(count($picRow) == 0)
                     <hr />
                     <div class="text-center">
 <!--                            <button type="submit" class="btn btn-success" id="upload-btn"><i class="icon-circle-arrow-up icon-white"></i> Subir la foto</button>-->
-                        <button onclick="like()" class='btn btn-primary like-btn' picID='<?php echo $picID;?>'><i class='icon-hand-up icon-white'></i> Me gusta esta foto</button>
+                        <button onclick="like()" class='btn btn-primary like-btn' picID='<?php echo $picID;?>'><i class=''></i> Me gusta esta foto</button>
                         <a href="mediaLibrary.php" class="btn btn-info"><i class="icon-picture"></i> Ver la galer&iacute;a completa</a>
                     </div>
                 </div>

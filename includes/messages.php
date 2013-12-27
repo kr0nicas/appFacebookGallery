@@ -29,9 +29,12 @@
 
     } elseif (isset($_GET['status'])) {
 
+      $exito=FALSE;
       switch($_GET['status']) {
         case 1:
-          $text = "Foto cargada con &eacute;xito!";
+          $text = "Foto cargada con &eacute;xito!<br /><br />
+                    Espera mientras se aprueba tu foto.";
+            $exito=TRUE;
           break;
         default:
           $text = "Unknown message code.";
