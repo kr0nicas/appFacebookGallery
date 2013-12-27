@@ -24,7 +24,8 @@ if ((($_FILES["img_file"]["type"] == "image/gif") || ($_FILES["img_file"]["type"
                 if (move_uploaded_file($_FILES["img_file"]["tmp_name"], "uploads/" . $_FILES["img_file"]["name"])) {
                     $data = Array('name' => $_FILES["img_file"]["name"]);
                     if ($db->insertRow($data)) {
-                        header('Location: index.php?status=1');
+                        $rutaFoto="uploads/" . $_FILES["img_file"]["name"];
+                        header('Location: index.php?status=1&rutaFoto='.$rutaFoto);
                     } else {
                         header('Location: index.php?error=1');
                     }

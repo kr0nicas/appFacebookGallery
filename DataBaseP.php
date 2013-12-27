@@ -127,6 +127,7 @@ class DataBase {
             $this->setQuery($sql);
             return $this->loadObject();            
         }    
+                
         
         public function createTable()
         {

@@ -28,29 +28,39 @@ include('head.php');
                             if($exito !== TRUE)
                             {
                             ?>
-                            <div class="controls">
-                                <?php
-                                if ($loguedin) {
-                                    ?>
-                                    <div class="fileinput fileinput-new">
-                                        <div class="fileinput-new thumbnail">
-                                            <img src="img/no-picture.png" alt="..." data-trigger="fileinput">
-                                        </div>
-                                        <div class="fileinput-preview fileinput-exists thumbnail" ></div>
-                                        <span class="btn btn-primary btn-file">
-                                            <span class="fileinput-new">Seleccione una foto</span>
-                                            <span class="fileinput-exists ">Cambiar</span><input type="file" name="..."></span>
-                                        <a href="#" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">Remover</a>
-                                    </div>
+                                <div class="controls">
                                     <?php
-                                } else {
-                                    echo "Para cargar tu fotografia, ingresa en el siguiente v&iacute;nculo: ";
-                                    echo "<br /><br /><a href=" . $loginUrl . " target='_top' class='btn btn-default'>
-                                        <img src='img/loguin.png'> Entrar</a> <br>";
-                                }
-                                ?>
-                            </div>
+                                    if ($loguedin) {
+                                        ?>
+                                        <div class="fileinput fileinput-new">
+                                            <div class="fileinput-new thumbnail">
+                                                <img src="img/no-picture.png" alt="..." data-trigger="fileinput">
+                                            </div>
+                                            <div class="fileinput-preview fileinput-exists thumbnail" ></div>
+                                            <span class="btn btn-primary btn-file">
+                                                <span class="fileinput-new">Seleccione una foto</span>
+                                                <span class="fileinput-exists ">Cambiar</span><input type="file" name="..."></span>
+                                            <a href="#" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">Remover</a>
+                                        </div>
+                                        <?php
+                                    } else {
+                                        echo "Para cargar tu fotografia, ingresa en el siguiente v&iacute;nculo: ";
+                                        echo "<br /><br /><a href=" . $loginUrl . " target='_top' class='btn btn-default'>
+                                            <img src='img/loguin.png'> Entrar</a> <br>";
+                                    }
+                                    ?>
+                                </div>
                             <?php
+                            }
+                            else
+                            {
+                                ?>
+                             <div class="text-center">
+                                <div class="thumbnail">
+                                    <img src="<?php echo $_GET['rutaFoto'];?>" >
+                                </div>             
+                             </div>
+                                <?php
                             }
                             ?>
                         </div>
