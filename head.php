@@ -58,6 +58,7 @@ if ($user) {
         <script type="text/javascript" src="js/scriptsUpload.js"></script>
         <script src="js/modernizr.custom.js"></script>
         <script src="js/bootstrap-paginator.min.js"></script>
+        <link href="favicon.ico" rel="icon" type="image/x-icon" />
     </head>
 
     <body>
