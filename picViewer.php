@@ -22,6 +22,9 @@ if(count($picRow) == 0)
                     <div class="messages text-center" id="message">
                         <?php include('includes/messages.php'); ?>
                     </div>
+                                <br /><br />
+                                <div class='alert fade in text-center' id='messageDiv' style='display:none;'><a class='close' data-dismiss='alert' href='#'>&times;</a></div>                                                         
+                                <br /><br />                    
                         <div class="row-fluid">
                             <div class="span12">
                                 <div class="span4 hand-right">
@@ -60,18 +63,24 @@ if(count($picRow) == 0)
                                 data: {picID: $('.like-btn').attr('picID')},
                                 success: function(responseText)
                                 {
-                                    //alert(responseText);
-                                    if(responseText == "1")
+                                    if (responseText == "1")
                                     {
-                                        alert('like agregado');
+                                        var msg='Gracias por tu like, invita a tus amigos';
+                                        $('#messageDiv').fadeOut('100');
+                                        $('#messageDiv').removeClass('alert-error').addClass('alert-succes').text(msg).fadeIn('100');
+
                                     }
-                                    else if(responseText == "2")
+                                    else if (responseText == "2")
                                     {
-                                        alert('ya le has dado like a esta foto');
+                                        var msg='Ya le has dado like a esta foto';
+                                        $('#messageDiv').fadeOut('100');
+                                        $('#messageDiv').removeClass('alert-succes').addClass('alert-error').text(msg).fadeIn('100');
                                     }
                                     else
                                     {
-                                        alert('No se pudo realizar el like');
+                                        var msg='No se pudo realizar el like';
+                                        $('#messageDiv').fadeOut('100');
+                                        $('#messageDiv').removeClass('alert-succes').addClass('alert-error').text(msg).fadeIn('100');
                                     }
                                 }                                                                
                             });     

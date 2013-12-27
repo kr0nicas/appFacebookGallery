@@ -26,6 +26,8 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
                     <th colspan='2'><br />
                         <button type='submit' class='btn btn-primary like-btn' picID='" . $row->id . "'><i class=''></i> Me gusta esta foto</button>
                         <button type='submit' class='btn btn-primary share-btn' picID='" . $row->id . "' picLoc='" . $row->img_loc . "'><i class=''></i> Compartir</button>
+                         <br /><br /><br />
+                         <div class='alert fade in' id='messageDiv' style='display:none;'><a class='close' data-dismiss='alert' href='#'>&times;</a></div>                         
                     </th>
                 </tr>                                 
               </table>";
@@ -72,15 +74,22 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
                 //alert(responseText);
                 if (responseText == "1")
                 {
-                    alert('like agregado');
+                    var msg='Gracias por tu like, invita a tus amigos';
+                    $('#messageDiv').fadeOut('100');
+                    $('#messageDiv').removeClass('alert-error').addClass('alert-succes').text(msg).fadeIn('100');
+
                 }
                 else if (responseText == "2")
                 {
-                    alert('ya le has dado like a esta foto');
+                    var msg='Ya le has dado like a esta foto';
+                    $('#messageDiv').fadeOut('100');
+                    $('#messageDiv').removeClass('alert-succes').addClass('alert-error').text(msg).fadeIn('100');
                 }
                 else
                 {
-                    alert('No se pudo realizar el like');
+                    var msg='No se pudo realizar el like';
+                    $('#messageDiv').fadeOut('100');
+                    $('#messageDiv').removeClass('alert-succes').addClass('alert-error').text(msg).fadeIn('100');
                 }
             }
         });

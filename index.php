@@ -55,11 +55,13 @@ include('head.php');
                             else
                             {
                                 ?>
-                             <div class="text-center">
-                                <div class="thumbnail">
-                                    <img src="<?php echo $_GET['rutaFoto'];?>" >
-                                </div>             
-                             </div>
+                                    <div class="controls">
+                                    <div class="fileinput fileinput-new">
+                                        <div class="thumbnail">
+                                            <img src="<?php echo $_GET['rutaFoto'];?>" >
+                                        </div>             
+                                    </div>
+                                    </div> 
                                 <?php
                             }
                             ?>
