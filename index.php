@@ -24,6 +24,10 @@ include('head.php');
                 <div class="span4 text-center">
                     <form method="post" action="upload.php" enctype="multipart/form-data"  id="form">
                         <div class="control-group">
+                            <?php
+                            if($exito !== TRUE)
+                            {
+                            ?>
                             <div class="controls">
                                 <?php
                                 if ($loguedin) {
@@ -40,11 +44,15 @@ include('head.php');
                                     </div>
                                     <?php
                                 } else {
-                                    echo "Para cargar tu fotografia, debes ingresar con tus credenciales de Facebook";
-                                    echo "<br><br><a href=" . $loginUrl . " target='_top'><img src='img/loguin.png'> Log in</a> <br>";
+                                    echo "Para cargar tu fotografia, ingresa en el siguiente v&iacute;nculo: ";
+                                    echo "<br /><br /><a href=" . $loginUrl . " target='_top' class='btn btn-default'>
+                                        <img src='img/loguin.png'> Entrar</a> <br>";
                                 }
                                 ?>
                             </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                 </div>
                 <div class="span4 hand-left">
@@ -54,7 +62,7 @@ include('head.php');
             <hr />
             <div class="text-center">
                 <?php
-                if ($loguedin) {
+                if (($loguedin) && ($exito !== TRUE)) {
                     ?>                        
                     <button type="submit" class="btn btn-success" id="upload-btn"><i class="icon-circle-arrow-up icon-white"></i> Subir la foto</button>
                     <?php

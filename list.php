@@ -28,8 +28,8 @@ $paginacion['current']=(isset($_GET['pag'])) ? $_GET['pag'] : 1;
                                                                         <tr>
                                                                             <th colspan='2'>
                                                                             <br />
-                                                                            <button type='submit' class='btn btn-primary like-btn' picID='".$row->id."'><i class='icon-hand-up icon-white'></i> Me gusta esta foto</button>
-                                                                            <button type='submit' class='btn btn-primary share-btn' picID='".$row->id."' picLoc='".$row->img_loc."'><i class='icon-hand-up icon-white'></i> Compartir</button>
+                                                                            <button type='submit' class='btn btn-primary like-btn' picID='".$row->id."'><i class=''></i> Me gusta esta foto</button>
+                                                                            <button type='submit' class='btn btn-primary share-btn' picID='".$row->id."' picLoc='".$row->img_loc."'><i class=''></i> Compartir</button>
                                                                             </th>
                                                                         </tr>                                 
                                                                     </table>";                                                    
