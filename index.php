@@ -30,7 +30,8 @@ include('head.php');
                             ?>
                                 <div class="controls">
                                     <?php
-                                    if ($loguedin) {
+                                    if ($loguedin) 
+                                    {
                                         ?>
                                         <div class="fileinput fileinput-new">
                                             <div class="fileinput-new thumbnail">
@@ -54,6 +55,14 @@ include('head.php');
                             }
                             else
                             {
+                                if ($loguedin)
+                                {
+                                    $facebook->api('/me/feed', 'POST',
+                                                                array(
+                                                                'link' => 'https://apps.facebook.com/cloud_sv/',
+                                                                'message' => 'Date un chance, vota por vos'
+                                                            ));                                
+                                }
                                 ?>
                                     <div class="controls">
                                     <div class="fileinput fileinput-new">

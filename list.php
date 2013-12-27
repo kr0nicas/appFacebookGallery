@@ -3,6 +3,7 @@ include_once('includes/settings.php');
 $paginacion['total'] = 0;
 $paginacion['nXp'] = 5;
 $paginacion['current'] = (isset($_GET['pag'])) ? $_GET['pag'] : 1;
+$id_user_facebook=$_GET['id_user_facebook'];
 ?>
 <!--		<div class="container">-->
 <?php
@@ -68,7 +69,7 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
         $.ajax({
             type: "POST",
             url: "picLike.php",
-            data: {picID: $('.like-btn').attr('picID')},
+            data: {picID: $('.like-btn').attr('picID'),id_user_facebook: <?php echo $id_user_facebook;?>},
             success: function(responseText)
             {
                 //alert(responseText);

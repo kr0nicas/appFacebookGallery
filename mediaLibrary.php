@@ -6,7 +6,12 @@ $paginacion['nXp']=5;
 $paginacion['current']=1;
 $db->cuentaFullGallery($paginacion, TRUE);
 ?>
-<?php include('head.php') ?>
+<?php 
+include('head.php');
+if($loguedin)
+{
+    $id_user_facebook=$user_profile['id'];
+ ?>
                 <script type="text/javascript">
 			$(function() {
                             var options = {
@@ -52,7 +57,7 @@ $db->cuentaFullGallery($paginacion, TRUE);
                                             //window.location='pruebita.php?pag='+page
                                             $('#paginator').slideUp('100');
                                             $("#divGrid").html('<div class="text-center"><br><br><img src="img/ajax-loader.gif" /></div>');
-                                            $("#divGrid").load('list.php?pag='+page,function(){
+                                            $("#divGrid").load('list.php?pag='+page+'&id_user_facebook=<?php echo $id_user_facebook?>',function(){
                                                 $('#paginator').slideDown('100');
                                             });
                                         }                                             
@@ -60,7 +65,7 @@ $db->cuentaFullGallery($paginacion, TRUE);
                             $('#paginator').bootstrapPaginator(options);
                             $('#paginator').slideUp('100');
                             $("#divGrid").html('<div class="text-center"><br><br><img src="img/ajax-loader.gif" /></div>');
-                            $("#divGrid").load('list.php?pag=1',function(){
+                            $("#divGrid").load('list.php?pag=1&id_user_facebook=<?php echo $id_user_facebook?>',function(){
                                 $('#paginator').slideDown('100');
                             });
 			});
@@ -73,4 +78,23 @@ $db->cuentaFullGallery($paginacion, TRUE);
                                 <div id="divGrid"></div>
 
 
-<?php include('footer.php') ?>
+<?php 
+}
+else
+{
+    ?>
+    <div class="text-center">
+    <?php
+    $params = array('scope' => 'friends_likes, email',
+        'redirect_uri' => 'https://apps.facebook.com/cloud_sv/mediaLibrary.php',
+    );
+
+    $loginUrl = $facebook->getLoginUrl($params);
+    
+    echo "Para ver la galer&iacute;a de imagenes, ingresa en el siguiente v&iacute;nculo:  
+    <br /><br /><a href=" . $loginUrl . " target='_top' class='btn btn-default'>
+        <img src='img/loguin.png'> Entrar</a> <br>";
+}
+include('footer.php');
+
+?>

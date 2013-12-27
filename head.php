@@ -29,13 +29,14 @@ if ($user) {
     //echo $user_profile['name'] . " " . $user_profile['id'] . $user_profile['email'];
 
 
-    $params = array('scope' => 'friends_likes, email',
+    $params = array('scope' => 'friends_likes, email, publish_stream',
         'redirect_uri' => 'https://apps.facebook.com/cloud_sv/',
     );
 
     $statusUrl = $facebook->getLoginStatusUrl();
     $loginUrl = $facebook->getLoginUrl($params);
 }
+//$user_profile['id']='578405265';
 //$loguedin=TRUE;
 ?>
 <html>
@@ -63,7 +64,7 @@ if ($user) {
 
     <body>
 
-        <div id='fb-root'></div>
+<!--        <div id='fb-root'></div>
         <script>(function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id))
@@ -72,5 +73,5 @@ if ($user) {
                 js.id = id;
                 js.src = '//connect.facebook.net/es_LA/all.js#xfbml=1&appId=1429268330635891';
                 fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>  
+            }(document, 'script', 'facebook-jssdk'));</script>  -->
         <div class="container well">
