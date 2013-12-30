@@ -25,7 +25,7 @@ if ($user) {
     //echo "<a href =" . $logoutUrl . "> Logout</a> <br>";
 } else {
     $loguedin = FALSE;
-    //print_r($user_profile);    
+    //print_r($user_profile);
     //echo $user_profile['name'] . " " . $user_profile['id'] . $user_profile['email'];
 
 

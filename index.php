@@ -1,5 +1,5 @@
 <?php
-include('head.php');
+include_once('head.php');
 ?>
 <div class="row-fluid">
     <div id="heading-app" class="span12">
@@ -30,7 +30,7 @@ include('head.php');
                             ?>
                                 <div class="controls">
                                     <?php
-                                    if ($loguedin) 
+                                    if ($loguedin)
                                     {
                                         ?>
                                         <div class="fileinput fileinput-new">
@@ -61,16 +61,16 @@ include('head.php');
                                                                 array(
                                                                 'link' => 'https://apps.facebook.com/cloud_sv/',
                                                                 'message' => 'Date un chance, vota por vos'
-                                                            ));                                
+                                                            ));
                                 }
                                 ?>
                                     <div class="controls">
                                     <div class="fileinput fileinput-new">
                                         <div class="thumbnail">
                                             <img src="<?php echo $_GET['rutaFoto'];?>" >
-                                        </div>             
+                                        </div>
                                     </div>
-                                    </div> 
+                                    </div>
                                 <?php
                             }
                             ?>
@@ -84,7 +84,7 @@ include('head.php');
             <div class="text-center">
                 <?php
                 if (($loguedin) && ($exito !== TRUE)) {
-                    ?>                        
+                    ?>
                     <button type="submit" class="btn btn-success" id="upload-btn"><i class="icon-circle-arrow-up icon-white"></i> Subir la foto</button>
                     <?php
                 }
@@ -97,6 +97,6 @@ include('head.php');
     <?php
     include('footer.php');
 //        echo '<script type="text/javascript">
-//        window.top.location = "https://apps.facebook.com/cloud_sv/";   
-//        </script>';    
-    ?> 
+//        window.top.location = "https://apps.facebook.com/cloud_sv/";
+//        </script>';
+    ?>
