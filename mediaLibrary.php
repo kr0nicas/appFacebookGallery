@@ -1,7 +1,7 @@
 <?php
 include_once('includes/settings.php');
 $paginacion['total']=0;
-$paginacion['nXp']=5;
+$paginacion['nXp']=10;
 $paginacion['current']=1;
 $db->cuentaFullGallery($paginacion, TRUE);
 ?>

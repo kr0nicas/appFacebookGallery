@@ -1,7 +1,7 @@
 <?php
 include_once('includes/settings.php');
 $paginacion['total'] = 0;
-$paginacion['nXp'] = 5;
+$paginacion['nXp'] = 10;
 $paginacion['current'] = (isset($_GET['pag'])) ? $_GET['pag'] : 1;
 $id_user_facebook=$_GET['id_user_facebook'];
 ?>
