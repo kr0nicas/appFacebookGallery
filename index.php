@@ -1,13 +1,13 @@
 <?php
 include_once('head.php');
 ?>
+
 <div class="row-fluid">
     <div id="heading-app" class="span12">
-        <h2 class="text-center">El poder está en mis manos</h2><br>
-        <p><h1 class="text-center font-big">Date un Chance Vota x Vos</h1></p>
-        <div class="hero-unit text-center well">
-            Te invitamos a que subas una fotografía en la que demuestres que te das un chance y votar&aacute;s en las pr&oacute;ximas elecciones. Invita a otros j&oacute;venes a que se den un chance.
-        </div>
+        <p><h1 class="text-center">Date un Chance Vota x Vos</h1></p>
+        <p class="span2"></p>
+        <p class="span8 triangle-rigth text-center">Te invitamos a que subas una fotografía en la que demuestres que te das un chance y votar&aacute;s en las pr&oacute;ximas elecciones. Invita a otros j&oacute;venes a que se den un chance.</p>
+        <p class="span2"></p>
     </div>
 </div>
 <div class="row-fluid">

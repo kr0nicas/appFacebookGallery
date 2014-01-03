@@ -1,13 +1,17 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
 
 body{
-    background: #014a73 url(../img/bg.jpg) top repeat-x;
-    font-family: 'Ubuntu';
+    font-family: 'Verdana';
+    color:white;
 }
 
 
 .container{
-    width: 90%;
+    width: 80%;
+}
+
+.fondo {
+    background: #014a73 url(../img/bg.jpg) top repeat-x;
 }
 .fondo-app{
 
@@ -60,6 +64,27 @@ body{
 #heading-app h1 h2 {
     margin-top: 0px;
     margin-bottom: 0px;
+    height: 120px;
+    padding: 10px 10px 10px 10px;
 }
 
+@media (max-width: 1024px) {
+    .container{
+        width: 970px;
+    }
+}
 
+.triangle-rigth {
+    position: relative;
+    padding: 15px;
+    color: #fff;
+    background: #075698;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
+    background: -moz-linear-gradient(#2e88c4, #075698);
+    background: -o-linear-gradient(#2e88c4, #075698);
+    background: linear-gradient(#2e88c4, #075698);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin: 0px;
+}
