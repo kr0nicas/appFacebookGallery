@@ -35,7 +35,7 @@ if ($user) {
     $loginUrl = $facebook->getLoginUrl($params);
 }
 //$user_profile['id']='578405265';
-$loguedin=TRUE;
+//$loguedin=TRUE;
 ?>
 <!DOCTYPE html>
 <html>
