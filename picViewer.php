@@ -48,10 +48,10 @@ if(count($picRow) == 0)
                         <button onclick="like()" class='btn btn-primary like-btn' picID='<?php echo $picID;?>'><i class=''></i> Me gusta esta foto</button>
                         <a href="mediaLibrary.php" class="btn btn-info"><i class="icon-picture"></i> Ver galer&iacute;a</a>
                     </div>
-                    <div class="text-center" style="width: 242px;">
-                        <div class='alert alert-success text-center' id='numLikes'><b><?php echo $picRow->numLikes;?></b> me gusta</div>
+                    <div class="text-center">
+                        <div class='alert alert-success text-center' id='numLikes' style="width: 242px;"><b><?php echo $picRow->numLikes;?></b> me gusta</div>
                         <br />
-                        <div class='alert fade in text-center' id='messageDiv' style='display:none;'><a class='close' data-dismiss='alert' href='#'>&times;</a></div>                              
+                        <div class='alert fade in text-center' id='messageDiv' style='display:none;width: 242px;'><a class='close' data-dismiss='alert' href='#'>&times;</a></div>                              
                     </div>
                 </div>
                 </div>
