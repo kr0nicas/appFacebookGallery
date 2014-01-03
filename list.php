@@ -65,7 +65,7 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
 
     function share()
     {
-        document.title = "This is the new page title.";
+//        document.title = "This is the new page title.";
         var picID = $('.share-btn').attr('picID');
         var picLoc = $('.share-btn').attr('picLoc');
         var myWindow = window.open("http://www.facebook.com/sharer/sharer.php?s=100&p[url]=https://apps.facebook.com/cloud_sv/picViewer.php?picID=" + picID + "&p[images][0]=https://glacial-ridge-1341.herokuapp.com/uploads/" + picLoc + "&p[title]=Date%20un%20Chance%20Vota%20X%20vos!&p[summary]=Este%20Febrero%202014,%20Date%20un%20Chance%20y%20Vota%20X%20Vos,%20Invita%20a%20tus%20amigos%20a%20formar%20parte%20de%20este%20Derecho%20y%20deber%20de%20cada%20Salvadore%C3%B1o", "", "width=200,height=100");
