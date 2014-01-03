@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS `images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `img_name` text NOT NULL,
+  `img_loc` text NOT NULL,
+  `likes` int(11) DEFAULT NULL,
+  `fecha_hora_carga` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
