@@ -138,14 +138,27 @@ class DataBase {
             return $this->loadObjectList();            
         }
         
-        public function getMoreLiked(&$paginacion,$orderBy='likes DESC', $n=40, $approved=TRUE)
+        public function getMoreLiked(&$paginacion,$orderBy='numLikes DESC', $n=40, $approved=TRUE)
         {
             $approved=($approved) ? '1' : '0';
             
             $paginacion['total']=$n;
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
-            $sql="SElECT * FROM images WHERE img_approved=$approved ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp'];
+//            $sql="SElECT * FROM images WHERE img_approved=$approved ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp'];
+            $sql="SELECT i.id,
+                        i.img_name,
+                        i.img_desc,
+                        i.img_loc,
+                        i.fecha_hora_carga,
+                        i.facebook_user_id,
+                        i.img_approved,
+                        (SELECT COUNT(*) FROM likes AS l WHERE l.id=i.id) as numLikes
+                    FROM images AS i
+                    WHERE img_approved=$approved
+                    ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp'];   
+            
+            $this->setQuery($sql);
             return $this->loadObjectList();            
         }  
         

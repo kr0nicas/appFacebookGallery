@@ -4,10 +4,12 @@ $paginacion['total'] = 0;
 $paginacion['nXp'] = 10;
 $paginacion['current'] = (isset($_GET['pag'])) ? $_GET['pag'] : 1;
 $id_user_facebook=$_GET['id_user_facebook'];
+$n=$_GET['n'];
 ?>
 <!--		<div class="container">-->
 <?php
-$result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
+//$result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
+$result= $db->getMoreLiked($paginacion,$orderBy='numLikes DESC', $n, TRUE);
 ?>
 <div class="main og-grid">
     <ul id="og-grid" class="og-grid">
@@ -16,9 +18,9 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
             $desc = "<p>Yo si me doy chance y me presentare a dar mi voto en las 
                 Próximas elecciones de mi País El Salvador.</p><table>
                 <script type='text/javascript'>
-                    $(function() {                    
+                    $(function() {
                         refreshLikes($row->id);
-                        
+
                         $('.like-btn').on('click',function(){
                         like();})
                     $('.share-btn').on('click',function(){
@@ -116,4 +118,5 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
             }
         });
     }    
+    
 </script>                
