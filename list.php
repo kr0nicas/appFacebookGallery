@@ -26,13 +26,17 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
                 <tr>
                     <th colspan='2'><br />                               
                         <button type='submit' class='btn btn-primary like-btn' picID='" . $row->id . "'><i class=''></i> Me gusta esta foto</button>
-                        <button type='submit' class='btn btn-primary share-btn' picID='" . $row->id . "' picLoc='" . $row->img_loc . "'><i class=''></i> Compartir</button>
-                        <br/>
-                        <div class='alert alert-success' id='numLikes'><b>".$row->numLikes."</b> me gusta</div>
-                        <br /><br /><br />
-                         <div class='alert fade in' id='messageDiv' style='display:none;'><a class='close' data-dismiss='alert' href='#'>&times;</a></div>                         
+                        <button type='submit' class='btn btn-primary share-btn' picID='" . $row->id . "' picLoc='" . $row->img_loc . "'><i class=''></i> Compartir</button>                       
                     </th>
-                </tr>                                 
+                </tr>   
+                <tr>
+                    <th colspan='2'>
+                        <br /><br />
+                        <div class='alert alert-success' id='numLikes'><b>".$row->numLikes."</b> me gusta</div>
+                        <br />
+                        <div class='alert fade in' id='messageDiv' style='display:none;'><a class='close' data-dismiss='alert' href='#'>&times;</a></div>                      
+                    </th>
+                </tr>
               </table>";
             echo '<li>'
             . '<a href="' . $row->img_loc . '" data-largesrc="' . $row->img_loc . '" data-title="El poder esta en mi voto!" data-description="' . $desc . '">
