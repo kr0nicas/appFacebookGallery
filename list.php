@@ -32,7 +32,7 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
                 <tr>
                     <th colspan='2'>
                         <br />
-                        <div class='alert alert-success' id='numLikes'><b>".$row->numLikes."</b> me gusta</div>
+                        <div class='alert alert-success' id='numLikes'><b>".$row->numLikes."</b> Me gusta</div>
                         <div class='alert fade in' id='messageDiv' style='display:none;'><a class='close' data-dismiss='alert' href='#'>&times;</a></div>                      
                     </th>
                 </tr>
@@ -95,7 +95,7 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
                     var msg='Gracias por tu like, invita a tus amigos';
                     $('#messageDiv').fadeOut('100');
                     $('#messageDiv').removeClass('alert-error').addClass('alert-succes').text(msg).fadeIn('100');
-                    $('#numLikes').fadeOut('100').fadeIn('100').html('<b>'+responseText+'</b> me gusta');
+                    $('#numLikes').fadeOut('100').fadeIn('100').html('<b>'+responseText+'</b> Me gusta');
                 }
             }
         });

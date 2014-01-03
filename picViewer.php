@@ -58,7 +58,7 @@ if(count($picRow) == 0)
                             <th style="max-width: 270px;">
                                 <div class="text-center">
                                     <br />
-                                    <div class='alert alert-success text-center' id='numLikes'><b><?php echo $picRow->numLikes;?></b> me gusta</div>                                   
+                                    <div class='alert alert-success text-center' id='numLikes'><b><?php echo $picRow->numLikes;?></b> Me gusta</div>                                   
                                     <div class='alert fade in text-center' id='messageDiv' style='display:none;'><a class='close' data-dismiss='alert' href='#'>&times;</a></div>                              
                                 </div>                               
                             </th>
@@ -95,7 +95,7 @@ if(count($picRow) == 0)
                                         var msg='Gracias por tu like, invita a tus amigos';
                                         $('#messageDiv').fadeOut('100');
                                         $('#messageDiv').removeClass('alert-error').addClass('alert-succes').text(msg).fadeIn('100');
-                                        $('#numLikes').fadeOut('100').fadeIn('100').html('<b>'+responseText+'</b> me gusta');
+                                        $('#numLikes').fadeOut('100').fadeIn('100').html('<b>'+responseText+'</b> Me gusta');
                                     }                                    
                                 }                                                                
                             });     
