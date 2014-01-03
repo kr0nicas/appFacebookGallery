@@ -6,7 +6,7 @@ include_once('head.php');
     <div id="heading-app" class="span12">
         <p><h1 class="text-center">Date un Chance Vota x Vos</h1></p>
         <p class="span2"></p>
-        <p class="span8 triangle-rigth text-center">Te invitamos a que subas una fotografía en la que demuestres que te das un chance y votar&aacute;s en las pr&oacute;ximas elecciones. Invita a otros j&oacute;venes a que se den un chance.</p>
+        <p class="span8 triangle-rigth text-center">Sube tu foto ó imagen y demuestra que te das un chance y votarás en las próximas elecciones. Invita a más jóvenes que se den un chance</p>
         <p class="span2"></p>
     </div>
 </div>
@@ -89,7 +89,7 @@ include_once('head.php');
                     <?php
                 }
                 ?>
-                <a href="mediaLibrary.php" class="btn btn-info"><i class="icon-picture"></i> Ver la galer&iacute;a</a>
+                <a href="mediaLibrary.php" class="btn btn-info"><i class="icon-picture"></i> Ver galer&iacute;a</a>
             </div>
             </form>
         </div>
