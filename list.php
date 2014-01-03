@@ -31,9 +31,8 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
                 </tr>   
                 <tr>
                     <th colspan='2'>
-                        <br /><br />
-                        <div class='alert alert-success' id='numLikes'><b>".$row->numLikes."</b> me gusta</div>
                         <br />
+                        <div class='alert alert-success' id='numLikes'><b>".$row->numLikes."</b> me gusta</div>
                         <div class='alert fade in' id='messageDiv' style='display:none;'><a class='close' data-dismiss='alert' href='#'>&times;</a></div>                      
                     </th>
                 </tr>
