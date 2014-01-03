@@ -92,7 +92,7 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
                     var msg='Gracias por tu like, invita a tus amigos';
                     $('#messageDiv').fadeOut('100');
                     $('#messageDiv').removeClass('alert-error').addClass('alert-succes').text(msg).fadeIn('100');
-                    $('#numLikes').css('background-color','red').animate({backgroundColor: 'white'},{duration:1000}).text('<b>'+responseText+'</b> me gusta');
+                    $('#numLikes').fadeOut('100').fadeIn('100').html('<b>'+responseText+'</b> me gusta');
                 }
             }
         });
