@@ -79,7 +79,8 @@ if($loguedin)
                             });
 			});
 		</script>
-                <a href="index.php"><i class="icon-arrow-left"></i> Regresar a la carga de fotograf&iacute;a.</a>                            
+                <br/>
+                &nbsp; <a href="index.php" class="btn btn-file"><i class="icon-arrow-left"></i> Regresar a la carga de fotograf&iacute;a.</a>                           
 
 			<div class="">
                             <h1 class="text-center">Galeria de imágenes con m&aacute;s likes</h1>
