@@ -1,5 +1,5 @@
 <?php
-//ini_set('display_errors', '1');
+ini_set('display_errors', '0');
 require_once 'src/facebook.php';
 $facebook = new Facebook(array(
     'appId' => '1429268330635891',
@@ -23,7 +23,7 @@ if ($user) {
     //echo "<a href =" . $logoutUrl . "> Logout</a> <br>";
 } else {
     $loguedin = FALSE;
-    //print_r($user_profile);    
+    //print_r($user_profile);
     //echo $user_profile['name'] . " " . $user_profile['id'] . $user_profile['email'];
 
 
@@ -35,7 +35,7 @@ if ($user) {
     $loginUrl = $facebook->getLoginUrl($params);
 }
 //$user_profile['id']='578405265';
-//$loguedin=TRUE;
+$loguedin=TRUE;
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,4 +63,4 @@ if ($user) {
 
     <body>
 
-        <div class="container well">
+        <div class="container fondo">
