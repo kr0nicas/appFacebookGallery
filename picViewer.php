@@ -43,16 +43,28 @@ if(count($picRow) == 0)
                                </div>
                         </div>
                     <hr />
-                    <div class="text-center">
-<!--                            <button type="submit" class="btn btn-success" id="upload-btn"><i class="icon-circle-arrow-up icon-white"></i> Subir la foto</button>-->
-                        <button onclick="like()" class='btn btn-primary like-btn' picID='<?php echo $picID;?>'><i class=''></i> Me gusta esta foto</button>
-                        <a href="mediaLibrary.php" class="btn btn-info"><i class="icon-picture"></i> Ver galer&iacute;a</a>
-                    </div>
-                    <div class="text-center">
-                        <div class='alert alert-success text-center' id='numLikes' style="width: 242px;"><b><?php echo $picRow->numLikes;?></b> me gusta</div>
-                        <br />
-                        <div class='alert fade in text-center' id='messageDiv' style='display:none;width: 242px;'><a class='close' data-dismiss='alert' href='#'>&times;</a></div>                              
-                    </div>
+                    <center>
+                    <table>
+                        <tr>
+                            <th style="max-width: 270px;">
+                                <div class="text-center">
+            <!--                            <button type="submit" class="btn btn-success" id="upload-btn"><i class="icon-circle-arrow-up icon-white"></i> Subir la foto</button>-->
+                                    <button onclick="like()" class='btn btn-primary like-btn' picID='<?php echo $picID;?>'><i class=''></i> Me gusta esta foto</button>
+                                    <a href="mediaLibrary.php" class="btn btn-info"><i class="icon-picture"></i> Ver galer&iacute;a</a>
+                                </div>                               
+                            </th>
+                        </tr>
+                         <tr>
+                            <th style="max-width: 270px;">
+                                <div class="text-center">
+                                    <br />
+                                    <div class='alert alert-success text-center' id='numLikes'><b><?php echo $picRow->numLikes;?></b> me gusta</div>                                   
+                                    <div class='alert fade in text-center' id='messageDiv' style='display:none;'><a class='close' data-dismiss='alert' href='#'>&times;</a></div>                              
+                                </div>                               
+                            </th>
+                        </tr>                       
+                    </table>  
+                    </center>
                 </div>
                 </div>
                 
@@ -65,6 +77,7 @@ if(count($picRow) == 0)
                                 data: {picID: $('.like-btn').attr('picID')},
                                 success: function(responseText)
                                 {
+//                                    alert(responseText)
                                     if (responseText == "err0")
                                     {
                                         var msg='No se pudo realizar el like';
