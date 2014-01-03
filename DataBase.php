@@ -151,7 +151,18 @@ class DataBase {
         
         public function getOne($id)
         {
-            $sql="SElECT * FROM images WHERE id='$id'";
+//            $sql="SElECT * FROM images WHERE id='$id'";
+            $sql="SELECT i.id,
+                        i.img_name,
+                        i.img_desc,
+                        i.img_loc,
+                        i.fecha_hora_carga,
+                        i.facebook_user_id,
+                        i.img_approved,
+                        (SELECT COUNT(*) FROM likes AS l WHERE l.id=i.id) as numLikes
+                    FROM images AS i
+                    WHERE id=$id";
+            
             $this->setQuery($sql);
             return $this->loadObject();            
         }

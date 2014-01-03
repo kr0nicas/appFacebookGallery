@@ -11,9 +11,9 @@ if(count($picRow) == 0)
 //print_R($picRow);
 ?>
             <div class="row-fluid">
-                <div class="span12">
-                    <h2 class="text-center">El poder esta en mis manos</h2><br>
-                    <p><h1 class="text-center font-big">¡YO SÍ VOTO!</h1></p>
+                <div id="heading-app" class="span12">
+                    <p><h1 class="text-center">Date un Chance Vota x Vos</h1></p>
+                    <p class="span2"></p>
                 </div>
             </div>
             <div class="row-fluid">
@@ -22,9 +22,11 @@ if(count($picRow) == 0)
                     <div class="messages text-center" id="message">
                         <?php include('includes/messages.php'); ?>
                     </div>
-                                <br /><br />
+                                <br />
+                                <div class='alert alert-success' id='numLikes'><b><?php echo $picRow->numLikes;?></b> me gusta</div>
+                                <br />
                                 <div class='alert fade in text-center' id='messageDiv' style='display:none;'><a class='close' data-dismiss='alert' href='#'>&times;</a></div>                                                         
-                                <br /><br />                    
+                                <br />                   
                         <div class="row-fluid">
                             <div class="span12">
                                 <div class="span4 hand-right">
@@ -63,14 +65,13 @@ if(count($picRow) == 0)
                                 data: {picID: $('.like-btn').attr('picID')},
                                 success: function(responseText)
                                 {
-                                    if (responseText == "1")
+                                    if (responseText == "err0")
                                     {
-                                        var msg='Gracias por tu like, invita a tus amigos';
+                                        var msg='No se pudo realizar el like';
                                         $('#messageDiv').fadeOut('100');
-                                        $('#messageDiv').removeClass('alert-error').addClass('alert-succes').text(msg).fadeIn('100');
-
+                                        $('#messageDiv').removeClass('alert-succes').addClass('alert-error').text(msg).fadeIn('100');                    
                                     }
-                                    else if (responseText == "2")
+                                    else if (responseText == "err2")
                                     {
                                         var msg='Ya le has dado like a esta foto';
                                         $('#messageDiv').fadeOut('100');
@@ -78,10 +79,11 @@ if(count($picRow) == 0)
                                     }
                                     else
                                     {
-                                        var msg='No se pudo realizar el like';
+                                        var msg='Gracias por tu like, invita a tus amigos';
                                         $('#messageDiv').fadeOut('100');
-                                        $('#messageDiv').removeClass('alert-succes').addClass('alert-error').text(msg).fadeIn('100');
-                                    }
+                                        $('#messageDiv').removeClass('alert-error').addClass('alert-succes').text(msg).fadeIn('100');
+                                        $('#numLikes').fadeOut('100').fadeIn('100').html('<b>'+responseText+'</b> me gusta');
+                                    }                                    
                                 }                                                                
                             });     
                         }                        
