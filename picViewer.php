@@ -21,12 +21,7 @@ if(count($picRow) == 0)
                     <!-- Mensajes de error o validación -->
                     <div class="messages text-center" id="message">
                         <?php include('includes/messages.php'); ?>
-                    </div>
-                                <br />
-                                <div class='alert alert-success' id='numLikes'><b><?php echo $picRow->numLikes;?></b> me gusta</div>
-                                <br />
-                                <div class='alert fade in text-center' id='messageDiv' style='display:none;'><a class='close' data-dismiss='alert' href='#'>&times;</a></div>                                                         
-                                <br />                   
+                    </div>                                                                    
                         <div class="row-fluid">
                             <div class="span12">
                                 <div class="span4 hand-right">
@@ -51,7 +46,12 @@ if(count($picRow) == 0)
                     <div class="text-center">
 <!--                            <button type="submit" class="btn btn-success" id="upload-btn"><i class="icon-circle-arrow-up icon-white"></i> Subir la foto</button>-->
                         <button onclick="like()" class='btn btn-primary like-btn' picID='<?php echo $picID;?>'><i class=''></i> Me gusta esta foto</button>
-                        <a href="mediaLibrary.php" class="btn btn-info"><i class="icon-picture"></i> Ver la galer&iacute;a completa</a>
+                        <a href="mediaLibrary.php" class="btn btn-info"><i class="icon-picture"></i> Ver galer&iacute;</a>
+                    </div>
+                    <div class="text-center">
+                        <div class='alert alert-success text-center' id='numLikes'><b><?php echo $picRow->numLikes;?></b> me gusta</div>
+                        <br />
+                        <div class='alert fade in text-center' id='messageDiv' style='display:none;'><a class='close' data-dismiss='alert' href='#'>&times;</a></div>                              
                     </div>
                 </div>
                 </div>
