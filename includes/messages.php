@@ -32,8 +32,8 @@
       $exito=FALSE;
       switch($_GET['status']) {
         case 1:
-          $text = "Foto cargada con &eacute;xito!<br /><br />
-                    Espera mientras se aprueba tu foto.";
+          $text = "Excelente, tu foto ha sido cargada!<br /><br />
+                    Tu fotograf&iacute;a est&aacute en proceso de aprobaci&oacute;n.";
             $exito=TRUE;
           break;
         default:
