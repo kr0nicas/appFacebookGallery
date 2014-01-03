@@ -25,6 +25,7 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
                 </script>
                 <tr>
                     <th colspan='2'><br />
+                        <span id='numLikes' class='badge numLikes'>Le gusta a <b>".$row->numLikes."</b> personas</span>
                         <button type='submit' class='btn btn-primary like-btn' picID='" . $row->id . "'><i class=''></i> Me gusta esta foto</button>
                         <button type='submit' class='btn btn-primary share-btn' picID='" . $row->id . "' picLoc='" . $row->img_loc . "'><i class=''></i> Compartir</button>
                          <br /><br /><br />
