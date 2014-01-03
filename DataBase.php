@@ -84,32 +84,7 @@ class DataBase {
             $paginacion['total']=$this->count();
             $paginacion['np']= ceil($paginacion['total']/$paginacion['nXp']);
             $begin=$paginacion['nXp'] * ($paginacion['current']-1);
-//            $sql="SElECT * FROM images WHERE img_approved=$approved ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp']; 
-//            $sql="SELECT i.id,
-//                        i.img_name,
-//                        i.img_desc,
-//                        i.img_loc,
-//                        i.fecha_hora_carga,
-//                        i.facebook_user_id,
-//                        i.img_approved,
-//                        COUNT(l.id_like) AS numLikes
-//                    FROM images AS i
-//                    LEFT OUTER JOIN likes as l ON i.id=l.id
-//                    WHERE img_approved=$approved
-//                    GROUP BY i.id
-//                    ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp'];
-            
-            $sql="SELECT i.id,
-                        i.img_name,
-                        i.img_desc,
-                        i.img_loc,
-                        i.fecha_hora_carga,
-                        i.facebook_user_id,
-                        i.img_approved,
-                        (SELECT COUNT(*) FROM likes AS l WHERE l.id=i.id) as numLikes
-                    FROM images AS i
-                    WHERE img_approved=$approved
-                    ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp'];
+            $sql="SElECT * FROM images WHERE img_approved=$approved ORDER BY $orderBy LIMIT $begin,".$paginacion['nXp']; 
             //echo $sql;
             $this->setQuery($sql);
             return $this->loadObjectList();
