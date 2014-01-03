@@ -18,18 +18,19 @@ try
     $picID=$_POST['picID'];
     if(! $db->alReadyLikePic($user_profile,$picID))
     {
-        if($db->likePic($user_profile,$picID))
+        $result=$db->likePic($user_profile,$picID);
+        if($result !== FALSE)
         {
-            echo '1';
+            echo $result;
         }
         else
         {
-            echo '0';
+            echo 'err0';
         }  
     }
     else
     {
-        echo '2';
+        echo 'err2';
     }    
 } 
 catch (FacebookApiException $e) 

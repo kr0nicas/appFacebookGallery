@@ -24,11 +24,12 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
                         })});
                 </script>
                 <tr>
-                    <th colspan='2'><br />
-                        <span id='numLikes' class='badge numLikes'>Le gusta a <b>".$row->numLikes."</b> personas</span>
+                    <th colspan='2'><br />                               
                         <button type='submit' class='btn btn-primary like-btn' picID='" . $row->id . "'><i class=''></i> Me gusta esta foto</button>
                         <button type='submit' class='btn btn-primary share-btn' picID='" . $row->id . "' picLoc='" . $row->img_loc . "'><i class=''></i> Compartir</button>
-                         <br /><br /><br />
+                        <br/>
+                        <div class='alert alert-success' id='numLikes'><b>".$row->numLikes."</b> me gusta</div>
+                        <br /><br /><br />
                          <div class='alert fade in' id='messageDiv' style='display:none;'><a class='close' data-dismiss='alert' href='#'>&times;</a></div>                         
                     </th>
                 </tr>                                 
@@ -74,14 +75,13 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
             success: function(responseText)
             {
                 //alert(responseText);
-                if (responseText == "1")
+                if (responseText == "err0")
                 {
-                    var msg='Gracias por tu like, invita a tus amigos';
+                    var msg='No se pudo realizar el like';
                     $('#messageDiv').fadeOut('100');
-                    $('#messageDiv').removeClass('alert-error').addClass('alert-succes').text(msg).fadeIn('100');
-
+                    $('#messageDiv').removeClass('alert-succes').addClass('alert-error').text(msg).fadeIn('100');                    
                 }
-                else if (responseText == "2")
+                else if (responseText == "err2")
                 {
                     var msg='Ya le has dado like a esta foto';
                     $('#messageDiv').fadeOut('100');
@@ -89,9 +89,10 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
                 }
                 else
                 {
-                    var msg='No se pudo realizar el like';
+                    var msg='Gracias por tu like, invita a tus amigos';
                     $('#messageDiv').fadeOut('100');
-                    $('#messageDiv').removeClass('alert-succes').addClass('alert-error').text(msg).fadeIn('100');
+                    $('#messageDiv').removeClass('alert-error').addClass('alert-succes').text(msg).fadeIn('100');
+                    $('#numLikes').css('background-color','red').animate({backgroundColor: 'white'},{duration:1000}).text('<b>'+responseText+'</b> me gusta');
                 }
             }
         });

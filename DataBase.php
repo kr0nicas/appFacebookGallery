@@ -222,7 +222,10 @@ class DataBase {
             }
             else
             {
-                return TRUE;
+                $sqlLikesCount="SELECT COUNT(*) as numLikes FROM likes WHERE id=$picID";
+                $this->setQuery($sqlLikesCount);
+                $resp=$this->loadObject();                   
+                return $resp->numLikes;
             }            
         }        
         
