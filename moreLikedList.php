@@ -42,7 +42,7 @@ $result= $db->getMoreLiked($paginacion,$orderBy='numLikes DESC', $n, TRUE);
                 </tr>
               </table>";
             echo '<li>'
-            . '<a href="' . $row->img_loc . '" data-largesrc="' . $row->img_loc . '" data-title="El poder esta en mi voto!" data-description="' . $desc . '">
+            . '<a href="' . $row->img_loc . '" data-largesrc="' . $row->img_loc . '" data-title="El poder est&aacute; en mi voto!" data-description="' . $desc . '">
                 <img src="' . $row->img_loc . '" alt="' . $row->img_loc . '"/>
 								</a>
 							</li>';

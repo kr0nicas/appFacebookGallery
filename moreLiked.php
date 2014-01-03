@@ -83,6 +83,9 @@ if($loguedin)
 
 			<div class="">
                             <h1 class="text-center">Galeria de imágenes con m&aacute;s likes</h1>
+                                <div class="text-center">
+                                    <a href="mediaLibrary.php" class="btn btn-info"><i class="icon-picture"></i> Ver la galer&iacute;a completa</a>
+                                </div>                             
                                 <div id="paginator"></div>
                                 <div id="divGrid"></div>
 

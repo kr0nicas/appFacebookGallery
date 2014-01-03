@@ -73,6 +73,9 @@ if($loguedin)
 
 			<div class="">
 				<h1 class="text-center">Galeria de imágenes</h1>
+                                <div class="text-center">
+                                    <a href="moreLiked.php" class="btn btn-success"><i class="icon-circle-arrow-up"></i> Ver las fotograf&iacute;as con m&aacute;s likes</a>
+                                </div>                                
                                 <div id="paginator"></div>
                                 <div id="divGrid"></div>
 
