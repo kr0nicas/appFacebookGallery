@@ -35,12 +35,12 @@ include_once('head.php');
                                         ?>
                                         <div class="fileinput fileinput-new">
                                             <div class="fileinput-new thumbnail">
-                                                <img src="img/no-picture.png" alt="..." data-trigger="fileinput">
+                                                <img src="img/no-picture.png" alt="..." data-trigger="fileinput" >
                                             </div>
-                                            <div class="fileinput-preview fileinput-exists thumbnail" ></div>
+                                            <div class="fileinput-preview fileinput-exists thumbnail" style="min-width: 250px;max-width: 350px; min-height: 200px; max-height: 350px;"></div>
                                             <span class="btn btn-primary btn-file">
-                                                <span class="fileinput-new">Seleccione una foto</span>
-                                                <span class="fileinput-exists ">Cambiar</span><input type="file" name="..."></span>
+                                            <span class="fileinput-new">Seleccione una foto</span>
+                                            <span class="fileinput-exists ">Cambiar</span><input type="file" name="..."></span>
                                             <a href="#" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">Remover</a>
                                         </div>
                                         <?php
