@@ -38,6 +38,14 @@ include_once('head.php');
                                                 <img src="img/no-picture.png" alt="..." data-trigger="fileinput" >
                                             </div>
                                             <div class="fileinput-preview fileinput-exists thumbnail" style="min-width: 250px;max-width: 350px; min-height: 200px; max-height: 350px;"></div>
+                                            <?php
+                                            if (($loguedin) && ($exito !== TRUE)) 
+                                            {
+                                                ?>
+                                                <button type="submit" class="btn btn-success fileinput-exists"  id="upload-btn"><i class="icon-circle-arrow-up icon-white"></i> Subir la foto</button>
+                                                <?php
+                                            }
+                                            ?>                                            
                                             <span class="btn btn-primary btn-file">
                                             <span class="fileinput-new">Seleccione una foto</span>
                                             <span class="fileinput-exists ">Cambiar</span><input type="file" name="..."></span>
@@ -83,9 +91,10 @@ include_once('head.php');
             <hr />
             <div class="text-center">
                 <?php
-                if (($loguedin) && ($exito !== TRUE)) {
+                if (($loguedin) && ($exito !== TRUE)) 
+                {
                     ?>
-                    <button type="submit" class="btn btn-success" id="upload-btn"><i class="icon-circle-arrow-up icon-white"></i> Subir la foto</button>
+<!--                    <button type="submit" class="btn btn-success" id="upload-btn"><i class="icon-circle-arrow-up icon-white"></i> Subir la foto</button>-->
                     <?php
                 }
                 ?>
