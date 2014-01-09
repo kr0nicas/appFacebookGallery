@@ -13,7 +13,7 @@ $result = $db->getFullGallery($paginacion, $orderBy = 'id DESC', TRUE);
     <ul id="og-grid" class="og-grid">
         <?php
         foreach ($result as $row) {
-            $desc = "<p>Yo si me doy chance y me presentare a dar mi voto en las 
+            $desc = "<p>Yo si me doy chance y me presentar&eacute; a dar mi voto en las 
                 Próximas elecciones de mi País El Salvador.</p><table>
                 <script type='text/javascript'>
                     $(function() {                    
