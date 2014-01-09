@@ -37,7 +37,7 @@ $db->cuentaFullGallery($paginacion, FALSE);
 
     <body>
 
-        <div class="container well">
+        <div class="container fondo">
                 <script type="text/javascript">
 			$(function() {
                             var options = {
@@ -103,10 +103,12 @@ $db->cuentaFullGallery($paginacion, FALSE);
                             ?>
 			});
 		</script>
-                <a href="administration.php"><i class="icon-arrow-left"></i> Regresar al men&uacute; de administraci&oacute;n.</a>                            
+                <br/>
+                &nbsp;&nbsp;&nbsp;
+                <a href="administration.php" class="btn btn-file"><i class="icon-arrow-left"></i> Regresar al men&uacute; de administraci&oacute;n.</a>                            
 
 			<div class="">
-                            <h1 class="text-center">Galeria de imágenes pendientes de aprobaci&oacute;n</h1>
+                            <h1 class="text-center">Galer&iacute;a de imágenes pendientes de aprobaci&oacute;n</h1>
                                 <div id="paginator"></div>
                                 <div id="divGrid"></div>
 

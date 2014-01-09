@@ -7,6 +7,7 @@
         <link href="../css/bootstrap-responsive.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/style-faceApp.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
+<!--        <link rel="stylesheet" type="text/css" href="../css/default.css" />-->
 
         <script type="text/javascript" src="../js/jquery.min.js"></script>
         <script type="text/javascript" src="../js/bootstrap.min.js"></script>
@@ -16,11 +17,11 @@
 ?>
     <body>
 
-        <div class="container well">
+        <div class="container fondo">
             <div class="row-fluid">
                 <div id="heading-app" class="span12">
 <!--                    <h2 class="text-center">El poder está en mis manos</h2><br>-->
-                    <h2 class="text-center well">Administraci&oacute;n de usuarios</h2><br>
+                    <h2 class="text-center">Administraci&oacute;n</h2><br>
                 </div>
             </div>
             <div class="row-fluid">
@@ -35,7 +36,7 @@
                                     <img src="../img/hand-right.png" alt="">
                                 </div>
                                <div class="span4 text-center">
-                                            <div class="container">
+                                            <div class="">
                                                 <div class="row">
                                                     <div class="col-sm-6 col-md-4 col-md-offset-4">
                                                         <h1 class="text-center login-title">Ingrese con sus credenciales</h1>
@@ -67,6 +68,5 @@
                     Una campaña por www.fundaspad.org | Elecciones El Salvador 2014
                </div>
     </body>
-
 </html>
 

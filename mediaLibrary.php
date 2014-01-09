@@ -73,7 +73,7 @@ if($loguedin)
                 &nbsp; <a href="index.php" class="btn btn-file"><i class="icon-arrow-left"></i> Regresar a la carga de fotograf&iacute;a.</a>                            
 
 			<div class="">
-				<h1 class="text-center">Galeria de imágenes</h1>
+				<h1 class="text-center">Galer&iacute;a de imágenes</h1>
                                 <div class="text-center">
                                     <a href="moreLiked.php" class="btn btn-success"><i class="icon-circle-arrow-up"></i> Ver las fotograf&iacute;as con m&aacute;s likes</a>
                                 </div>                                

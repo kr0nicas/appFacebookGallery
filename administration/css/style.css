@@ -47,9 +47,16 @@
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
+
+.menu-link
+{
+    color: greenyellow;
+    font-weight: bold;
+}
+
 .login-title
 {
-    color: #555;
+    color: white;
     font-size: 18px;
     font-weight: 400;
     display: block;
