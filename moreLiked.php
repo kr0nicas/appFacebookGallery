@@ -87,8 +87,9 @@ if($loguedin)
                                 <div class="text-center">
                                     <a href="mediaLibrary.php" class="btn btn-info"><i class="icon-picture"></i> Ver la galer&iacute;a completa</a>
                                 </div>                             
-                                <div id="paginator"></div>
+                                
                                 <div id="divGrid"></div>
+                                <div id="paginator"></div>
 
 
 <?php 
