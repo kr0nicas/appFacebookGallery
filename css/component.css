@@ -55,14 +55,14 @@
 
 .og-close {
 	position: absolute;
-	width: 40px;
+	width: 100px;
 	height: 40px;
 	top: 20px;
 	right: 20px;
 	cursor: pointer;
 }
 
-.og-close::before,
+/*.og-close::before,
 .og-close::after {
 	content: '';
 	position: absolute;
@@ -79,7 +79,7 @@
 	-webkit-transform: rotate(-45deg);
 	-moz-transform: rotate(-45deg);
 	transform: rotate(-45deg);
-}
+}*/
 
 .og-close:hover::before,
 .og-close:hover::after {
